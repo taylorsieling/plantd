@@ -6,7 +6,7 @@
 [ ] Use ES6 features when appropriate (e.g. arrow functions, let & const, rest and spread syntax).
 
 # Rails
-[ ] Follow Rails MVC and RESTful conventions. That means, for example, that a request GET /puppies ought to be handled by the PuppiesController, fetch puppies from the database using a Puppy Active Record model, and return a list of puppies as JSON.
+[ ] Follow Rails MVC and RESTful conventions.
 
 [ ] Well-named variables and methods
 
