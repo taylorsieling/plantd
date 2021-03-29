@@ -36,46 +36,9 @@ function handleCreatePlantSubmit(e) {
     plantForm.reset()
 }
 
-function handleListClick(e) {
-   if (e.target.className === "delete") {
-       
-       //remove from database
-       let id = e.target.dataset.id
-        deletePlant(id)
-
-        //remove from DOM
-       let plant = document.getElementById(`plant-${id}`)
-       plant.remove()
-
-       console.log("Deleted Successfully!")
-   }
-
-
-   
-}
-
-function deletePlant(id) {
-
-    let configObj = {
-        method: 'DELETE',
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
-    }
-
-    fetch(`http://localhost:3000/plants/${id}`, configObj)
-    .then(res => res.json())
-    .then(response => {
-        alert(response.message)
-    })
-}
-
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-
     plantsAdapter.fetchPlants()
     plantForm.addEventListener('submit', handleCreatePlantSubmit)
-    plantList.addEventListener('click', handleListClick)
+    plantList.addEventListener('click', plantsAdapter.handleListClick)
 })

@@ -39,4 +39,13 @@ class Plant {
 
         return this.element
     }
+
+    handleListClick(e) {
+        if (e.target.className === "delete") {
+            let id = e.target.dataset.id
+            debugger
+             plantsAdapter.deletePlant(id)
+        }
+     }
+     
 }
