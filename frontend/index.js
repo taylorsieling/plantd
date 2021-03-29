@@ -1,7 +1,7 @@
 const plantList = document.getElementById('plant-list')
 const plantForm = document.getElementById('plant-form')
 const plantSpecies = document.getElementById('plant-species')
-const PlantNickname = document.getElementById('plant-nickname')
+const plantNickname = document.getElementById('plant-nickname')
 const plantDesc = document.getElementById('plant-description')
 const plantPot = document.getElementById('plant-pot')
 
@@ -30,24 +30,26 @@ function handleCreatePlantSubmit(e) {
     e.preventDefault()
 
     let newPlantObj = {
-        nickname: planeNickname.value,
+        nickname: plantNickname.value,
         species: plantSpecies.value,
         description: plantDesc.value,
         pot: plantPot.value
     }
 
     let configObj = {
-        method: 'POST
+        method: 'POST',
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify
+        body: JSON.stringify(newPlantObj)
     }
 
-    fetch('http://localhost:3000/plants', )
-
-
+    fetch('http://localhost:3000/plants/', configObj)
+    .then(res => res.json)
+    .then(data => {
+        debugger
+    })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
