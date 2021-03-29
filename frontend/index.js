@@ -53,6 +53,7 @@ function handleCreatePlantSubmit(e) {
         addPlantToDOM(response.data)
     })
 
+    console.log("Created a new plant!")
     plantForm.reset()
 }
 
@@ -67,9 +68,11 @@ function handleListClick(e) {
        let plant = document.getElementById(`plant-${id}`)
        plant.remove()
 
+       console.log("Deleted Successfully!")
    }
+   
 
-   console.log("Yay it works")
+   
 }
 
 function deletePlant(id) {
