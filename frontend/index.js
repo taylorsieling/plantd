@@ -18,7 +18,7 @@ function addPlants(response) {
 
 function addPlantToDOM(plant) {
     plantList.innerHTML += `
-        <div id="plant-${plant.id}">
+        <div id="plant-${plant.attributes.id}">
             <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
                 <span class="species">${plant.attributes.species}</span><br>
                 <span class="description">${plant.attributes.description}</span>
@@ -47,9 +47,7 @@ function handleCreatePlantSubmit(e) {
 
     fetch('http://localhost:3000/plants/', configObj)
     .then(res => res.json)
-    .then(data => {
-        debugger
-    })
+    .then(response => addPlantToDOM(response.data))
 }
 
 document.addEventListener('DOMContentLoaded', () => {

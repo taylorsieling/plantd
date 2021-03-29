@@ -13,4 +13,19 @@ class PlantsController < ApplicationController
         render json: PlantSerializer.new(plant, options)
     end
 
+    def create
+        plant = Plant.new(plant_params)
+        if plant.save
+            render json: PlantSerializer.new(plant)
+        else
+            render json: {error: 'plant could not be added'}
+        end
+    end
+
+    private
+
+    def plant_params
+        params.require(:plant).permit(:nickname, :species, :description, :pot)
+    end
+
 end
