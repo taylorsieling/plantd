@@ -1,4 +1,10 @@
 const plantList = document.getElementById('plant-list')
+const plantForm = document.getElementById('plant-form')
+const plantSpecies = document.getElementById('plant-species')
+const PlantNickname = document.getElementById('plant-nickname')
+const plantDesc = document.getElementById('plant-description')
+const plantPot = document.getElementById('plant-pot')
+
 
 function fetchPlants() {
     fetch('http://localhost:3000/plants')
@@ -20,7 +26,12 @@ function addPlantToDOM(plant) {
         </div>`
 }
 
+function handleCreateFormSubmit(e) {
+    e.preventDefault()
+    debugger
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchPlants()
+    plantForm.addEventListener('submit', handleCreateFormSubmit)
 })
-
