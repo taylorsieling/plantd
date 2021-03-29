@@ -5,3 +5,73 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# plants
+
+morty = Plant.create({
+    species: "Golden Pothos",
+    nickname: "Morty",
+    description: "Morty is a medium Golden Pothos with several trailing vines. Morty has produced several baby Pothos via cuttings.",
+    pot: "8-Inch Plastic Terra Cotta"
+})
+
+paul = Plant.create({
+    species: "Aloe Vera",
+    nickname: "Paul",
+    description: "Paul is a large Aloe Vera with light green leaves. Paul has produced over 10 baby Aloe Veras via pups.",
+    pot: "12-Inch Plastic Terra Cotta"
+})
+
+adele = Plant.create({
+    species: "Haworthia",
+    nickname: "Adele",
+    description: "Adele is a large Haworthia with long leaves. Adele has produced many baby Haworthia's via pups.",
+    pot: "8-Inch Grey, Decorative Ceramic Planter"
+})
+
+melanie = Plant.create({
+    species: "Watermelon Peperomia",
+    nickname: "Melanie",
+    description: "Melanie is a small Watermelon Peperomia with three large leaves and new growth appearing quickly.",
+    pot: "4-Inch Yellow Ceramic Planter"
+})
+
+# plant care
+
+watermorty = Care.create({
+    type: "Watering",
+    notes: "Watered thoroughly. Check dryness in 10 days.",
+    date: "2021-03-24"
+})
+
+watermel = Care.create({
+    type: "Watering",
+    notes: "Watered thoroughly. Check dryness in 4 days. Do not overwater!",
+    date: "2021-03-28"
+})
+
+propadele = Care.create({
+    type: "Propogation",
+    notes: "Removed 5 pups from Adele with good root structure. Repotted together in new pot.",
+    date: "2021-02-05"
+})
+
+propmorty = Care.create({
+    type: "Propogation",
+    notes: "Took 12 cuttings from Morty's longest vine. Cuttings have been placed in propogation stations for water propogation. Roots should appear in 10-14 days.",
+    date: "2021-03-04"
+})
+
+repotmel = Care.create({
+    type: "Repotting",
+    notes: "Repotted Melanie from grower pot to Yellow Ceramic Pot.",
+    date: "2021-03-06"
+})
+
+prunepaul = Care.create({
+    type: "Pruning",
+    notes: "Pruned Paul after the freeze. Removed dead ends and leaves.",
+    date: "2021-02-24"
+})
+
+

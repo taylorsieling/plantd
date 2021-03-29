@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_29_144848) do
 
   create_table "cares", force: :cascade do |t|
-    t.string "type"
+    t.string "care_type"
     t.text "notes"
     t.date "date"
     t.integer "plant_id", null: false
