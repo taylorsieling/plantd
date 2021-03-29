@@ -22,19 +22,21 @@ class Plant {
     }
 
     addPlantsToDOM() {
-        this.plantList.append(this.plantFullRender)
+        this.plantList.append(this.plantFullRender())
     }
     
-    plantFullRender(plant) {
-        plantList.innerHTML += `
-            <div id="plant-${plant.id}">
-                <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
-                    <span class="species"> Species: ${plant.attributes.species}</span><br>
-                    <span class="description"> Description: ${plant.attributes.description}</span><br>
-                    <span class="description"> Current Planter: ${plant.attributes.pot}</span>
-                </li>
-                <button class="update" data-id="${plant.id}">Update</button> 
-                <button class="delete" data-id="${plant.id}">Delete</button> 
-            </div>`
+    plantFullRender() {
+        this.element.innerHTML = `
+            <li> 
+                <span class="nickname"><strong>${this.nickname}</strong></span> <br>
+                <span class="species"> Species: ${this.species}</span><br>
+                <span class="description"> Description: ${this.description}</span><br>
+                <span class="description"> Current Planter: ${this.pot}</span>
+            </li>
+            <button class="update" data-id="${this.id}">Update</button> 
+            <button class="delete" data-id="${this.id}">Delete</button> 
+        `
+
+        return this.element
     }
 }
