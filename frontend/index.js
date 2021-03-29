@@ -4,30 +4,8 @@ const plantSpecies = document.getElementById('plant-species')
 const plantNickname = document.getElementById('plant-nickname')
 const plantDesc = document.getElementById('plant-description')
 const plantPot = document.getElementById('plant-pot')
+const plantsAdapter = new PlantsAdapter
 
-
-function fetchPlants() {
-    fetch('http://localhost:3000/plants')
-    .then(res => res.json())
-    .then(data => addPlants(data))
-}
-
-function addPlants(response) {
-    response.data.forEach(plant => addPlantToDOM(plant))
-}
-
-function addPlantToDOM(plant) {
-    plantList.innerHTML += `
-        <div id="plant-${plant.id}">
-            <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
-                <span class="species"> Species: ${plant.attributes.species}</span><br>
-                <span class="description"> Description: ${plant.attributes.description}</span><br>
-                <span class="description"> Current Planter: ${plant.attributes.pot}</span>
-            </li>
-            <button class="update" data-id="${plant.id}">Update</button> 
-            <button class="delete" data-id="${plant.id}">Delete</button> 
-        </div>`
-}
 
 function handleCreatePlantSubmit(e) {
     e.preventDefault()
@@ -95,7 +73,9 @@ function deletePlant(id) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchPlants()
+    
+
+    plantsAdapter.fetchPlants()
     plantForm.addEventListener('submit', handleCreatePlantSubmit)
     plantList.addEventListener('click', handleListClick)
 })

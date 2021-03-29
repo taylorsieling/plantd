@@ -3,8 +3,8 @@
 class Plant {
 
     static all = []
-    
-    constructor(species, nickname, description, pot, id) {
+
+    constructor({species, nickname, description, pot, id}) {
         this.species = species
         this.nickname = nickname
         this.description = description
@@ -15,5 +15,22 @@ class Plant {
         this.element.id = `plant-${this.id}`
 
         Plant.all.push(this)
+    }
+
+    addPlants(response) {
+        this.plantList.append(this.addPlantToDOM)
+    }
+    
+    addPlantToDOM(plant) {
+        plantList.innerHTML += `
+            <div id="plant-${plant.id}">
+                <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
+                    <span class="species"> Species: ${plant.attributes.species}</span><br>
+                    <span class="description"> Description: ${plant.attributes.description}</span><br>
+                    <span class="description"> Current Planter: ${plant.attributes.pot}</span>
+                </li>
+                <button class="update" data-id="${plant.id}">Update</button> 
+                <button class="delete" data-id="${plant.id}">Delete</button> 
+            </div>`
     }
 }
