@@ -41,37 +41,43 @@ melanie = Plant.create({
 watermorty = Care.create({
     care_type: "Watering",
     notes: "Watered thoroughly. Check dryness in 10 days.",
-    date: "2021-03-24"
+    date: "2021-03-24",
+    plant: morty
 })
 
 watermel = Care.create({
     care_type: "Watering",
     notes: "Watered thoroughly. Check dryness in 4 days. Do not overwater!",
-    date: "2021-03-28"
+    date: "2021-03-28",
+    plant: melanie
 })
 
 propadele = Care.create({
     care_type: "Propogation",
     notes: "Removed 5 pups from Adele with good root structure. Repotted together in new pot.",
-    date: "2021-02-05"
+    date: "2021-02-05",
+    plant: adele
 })
 
 propmorty = Care.create({
     care_type: "Propogation",
     notes: "Took 12 cuttings from Morty's longest vine. Cuttings have been placed in propogation stations for water propogation. Roots should appear in 10-14 days.",
-    date: "2021-03-04"
+    date: "2021-03-04",
+    plant: morty
 })
 
 repotmel = Care.create({
     care_type: "Repotting",
     notes: "Repotted Melanie from grower pot to Yellow Ceramic Pot.",
-    date: "2021-03-06"
+    date: "2021-03-06",
+    plant: melanie
 })
 
 prunepaul = Care.create({
     care_type: "Pruning",
     notes: "Pruned Paul after the freeze. Removed dead ends and leaves.",
-    date: "2021-02-24"
+    date: "2021-02-24",
+    plant: paul
 })
 
 
