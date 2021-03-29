@@ -26,12 +26,31 @@ function addPlantToDOM(plant) {
         </div>`
 }
 
-function handleCreateFormSubmit(e) {
+function handleCreatePlantSubmit(e) {
     e.preventDefault()
-    debugger
+
+    let newPlantObj = {
+        nickname: planeNickname.value,
+        species: plantSpecies.value,
+        description: plantDesc.value,
+        pot: plantPot.value
+    }
+
+    let configObj = {
+        method: 'POST
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify
+    }
+
+    fetch('http://localhost:3000/plants', )
+
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchPlants()
-    plantForm.addEventListener('submit', handleCreateFormSubmit)
+    plantForm.addEventListener('submit', handleCreatePlantSubmit)
 })
