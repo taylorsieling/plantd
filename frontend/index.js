@@ -23,6 +23,8 @@ function addPlantToDOM(plant) {
                 <span class="species">${plant.attributes.species}</span><br>
                 <span class="description">${plant.attributes.description}</span>
             </li>
+            <button class="update" data-id="${plant.id}">Update</button> 
+            <button class="delete" data-id="${plant.id}">Delete</button> 
         </div>`
 }
 
@@ -54,7 +56,42 @@ function handleCreatePlantSubmit(e) {
     plantForm.reset()
 }
 
+function handleListClick(e) {
+   if (e.target.className === "delete") {
+       
+       //remove from database
+       let id = e.target.dataset.id
+        deletePlant(id)
+
+        //remove from DOM
+       let plant = document.getElementById(`plant-${id}`)
+       plant.remove()
+
+   }
+
+   console.log("Yay it works")
+}
+
+function deletePlant(id) {
+
+    let configObj = {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }
+
+    fetch(`http://localhost:3000/plants/${id}`, configObj)
+    .then(res => res.json())
+    .then(response => {
+        alert(response.message)
+    })
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchPlants()
     plantForm.addEventListener('submit', handleCreatePlantSubmit)
+    plantList.addEventListener('click', handleListClick)
 })

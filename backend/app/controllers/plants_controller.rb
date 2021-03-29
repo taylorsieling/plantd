@@ -22,6 +22,12 @@ class PlantsController < ApplicationController
         end
     end
 
+    def destroy
+        plant = Plant.find(params[:id])
+        plant.destroy
+        render json: {message: 'Successfully Deleted'}
+    end
+
     private
 
     def plant_params
