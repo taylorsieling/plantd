@@ -7,12 +7,10 @@ function fetchPlants() {
 }
 
 function addPlants(response) {
-    console.log(response)
     response.data.forEach(plant => addPlantToDOM(plant))
 }
 
 function addPlantToDOM(plant) {
-    console.log(plant)
     plantList.innerHTML += `
         <div id="plant-${plant.id}">
             <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
