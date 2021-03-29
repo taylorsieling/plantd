@@ -14,8 +14,10 @@ function addPlants(response) {
 function addPlantToDOM(plant) {
     console.log(plant)
     plantList.innerHTML += `
-        <div id="plant-${plant.id}>
-            <li> 
+        <div id="plant-${plant.id}">
+            <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
+                <span class="species">${plant.attributes.species}</span><br>
+                <span class="description">${plant.attributes.description}</span>
             </li>
         </div>`
 }
@@ -24,4 +26,3 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPlants()
 })
 
-// Nickname - bold, Species, Description, Pot
