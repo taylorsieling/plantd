@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
 
     def index
         plants = Plant.all
-        render json: plants 
+        render json: plants.to_json(include: [:cares])
     end
 
     def show
