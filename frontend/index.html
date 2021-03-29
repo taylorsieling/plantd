@@ -10,6 +10,24 @@
         <p>Your Plants:</p>
         <ul id="plant-list"></ul>
 
+        <button id="new-plant-form-btn">Add a Plant!</button>
+
+        <br> <br>
+
+        <div id="plant-form-container">
+            <form id="plant-form">
+                <label for="plant-nickname">Nickname:</label>
+                <input type="text" name="nickname" id="plant-nickname"><br><br>
+                <label for="plant-species">Species:</label>
+                <input type="text" name="species" id="plant-species"><br><br>
+                <label for="plant-decription">Description:</label>
+                <input type="text" name="description" id="plant-description"><br><br>
+                <label for="plant-pot">Planter:</label>
+                <input type="text" name="pot" id="plant-pot"><br><br>
+                <input type="submit" value="Add Plant">
+            </form>
+        </div>
+
         <script src="index.js" type="text/javascript"></script>
         <script src="src/plant.js" type="text/javascript"></script>
         <script src="src/plantAdapter.js" type="text/javascript"></script>
