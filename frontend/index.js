@@ -20,8 +20,9 @@ function addPlantToDOM(plant) {
     plantList.innerHTML += `
         <div id="plant-${plant.id}">
             <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
-                <span class="species">${plant.attributes.species}</span><br>
-                <span class="description">${plant.attributes.description}</span>
+                <span class="species"> Species: ${plant.attributes.species}</span><br>
+                <span class="description"> Description: ${plant.attributes.description}</span><br>
+                <span class="description"> Current Planter: ${plant.attributes.pot}</span>
             </li>
             <button class="update" data-id="${plant.id}">Update</button> 
             <button class="delete" data-id="${plant.id}">Delete</button> 
@@ -70,7 +71,7 @@ function handleListClick(e) {
 
        console.log("Deleted Successfully!")
    }
-   
+
 
    
 }
