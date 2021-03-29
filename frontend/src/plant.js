@@ -17,11 +17,15 @@ class Plant {
         Plant.all.push(this)
     }
 
-    addPlants(response) {
-        this.plantList.append(this.addPlantToDOM)
+    get plantList() {
+        return document.getElementById('plant-list')
+    }
+
+    addPlantsToDOM() {
+        this.plantList.append(this.plantFullRender)
     }
     
-    addPlantToDOM(plant) {
+    plantFullRender(plant) {
         plantList.innerHTML += `
             <div id="plant-${plant.id}">
                 <li> <span class="nickname"><strong>${plant.attributes.nickname}</strong></span> <br>
