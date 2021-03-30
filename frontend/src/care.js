@@ -20,13 +20,17 @@ class Care {
     }
 
     addCaresToDom() {
-        this.careList.append(this.careFullRender())
+        let careContainer = document.createElement('div')
+        this.careContainer.id = `care-container-${this.plant_id}`
+        let plantCareDiv = document.getElementById(`plant-card-${this.plant_id}`).appendChild(careContainer)
+        this.plantCareDiv.append(this.careFullRender())
         this.addEventListeners()
     }
 
     careFullRender() {
+        
         this.element.innerHTML = `
-            
+
         `
     }
 }
