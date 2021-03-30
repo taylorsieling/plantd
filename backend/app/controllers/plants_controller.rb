@@ -2,8 +2,8 @@ class PlantsController < ApplicationController
 
     def index
         plants = Plant.all
-        options = {include: [:cares]}
-        render json: PlantSerializer.new(plants, options)
+        # options = {include: [:cares]}
+        render json: PlantSerializer.new(plants)
         # render json: plants.to_json(include: {cares: {only: [:care_type, :notes, :date]}})
     end
 

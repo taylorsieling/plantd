@@ -10,9 +10,9 @@ class PlantsAdapter {
         fetch(this.baseUrl)
         .then(res => res.json())
         .then(response => {
-            response.data.forEach(element => {
-                let plant = new Plant(element.attributes)
-                plant.addPlantsToDOM(element)
+            response.data.forEach(el => {
+                let plant = new Plant(el.attributes)
+                plant.addPlantsToDom(el)
             })
         })
     }

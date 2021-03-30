@@ -14,15 +14,22 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
+        this.plantList = document.getElementById('plant-list')
+
         Plant.all.push(this)
     }
 
-    get plantList() {
-        return document.getElementById('plant-list')
+    // get plantList() {
+    //     return document.getElementById('plant-list')
+    // }
+
+    addEventListeners() {
+        this.element.addEventListener('click', this.handleListClick)
     }
 
-    addPlantsToDOM() {
+    addPlantsToDom() {
         this.plantList.append(this.plantFullRender())
+        this.addEventListeners()
     }
     
     plantFullRender() {
@@ -34,18 +41,18 @@ class Plant {
                 <span class="description"> Current Planter: ${this.pot}</span>
             </li>
             <button class="update" data-id="${this.id}">Update</button> 
-            <button class="delete" data-id="${this.id}">Delete</button> 
+            <button class="delete" data-id="${this.id}">Delete</button>
         `
-
         return this.element
     }
 
-    handleListClick(e) {
+    handleListClick = (e) => {
         if (e.target.className === "delete") {
             let id = e.target.dataset.id
-            debugger
-             plantsAdapter.deletePlant(id)
+            plantsAdapter.deletePlant(id)
         }
      }
+
+    
      
 }
