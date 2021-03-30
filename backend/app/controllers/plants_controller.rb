@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
 
-    before_action :set_plant, only: [:show, :delete, :update]
+    # before_action :set_plant, only: [:show, :delete, :update]
 
     def index
         plants = Plant.all
@@ -10,6 +10,7 @@ class PlantsController < ApplicationController
     end
 
     def show
+        plant = Plant.find(params[:id])
         options = {include: [:cares]}
         render json: PlantSerializer.new(plant, options)
     end
@@ -24,23 +25,25 @@ class PlantsController < ApplicationController
     end
 
     def destroy
+        plant = Plant.find(params[:id])
         plant.destroy
         render json: {message: 'Successfully Deleted'}
     end
 
     def update
+        plant = Plant.find(params[:id])
         plant.update(plant_params)
-        render json: {message: 'Successfully Updated!'}
+        render json: PlantSerializer.new(plant)
     end
 
     private
 
     def plant_params
-        params.require(:plant).permit(:nickname, :species, :description, :pot)
+        params.require(:plant).permit(:species, :nickname, :description, :pot)
     end
 
-    def set_plant
-        plant = Plant.find(params[:id])
-    end
+    # def set_plant
+    #     plant = Plant.find(params[:id])
+    # end
 
 end

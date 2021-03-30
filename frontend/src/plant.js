@@ -46,7 +46,7 @@ class Plant {
         return this.element
     }
 
-    updatePlantOnDom(nickname, species, description, pot) {
+    updatePlantOnDom({nickname, species, description, pot}) {
         this.nickname = nickname
         this.species = species
         this.description = description
@@ -57,10 +57,10 @@ class Plant {
     addUpdateForm(plantId) {
         let plant = document.querySelector(`#plant-${plantId} li`)
         let updateForm = `
-            <input type="text" value="${this.nickname} name="nickname" id="update-nickname-${plantId}">
-            <input type="text" value="${this.species} name="species" id="update-species-${plantId}">
-            <input type="text" value="${this.description} name="description" id="update-desc-${plantId}">
-            <input type="text" value="${this.pot} name="pot" id="update-pot-${plantId}">
+            <input type="text" value="${this.nickname}" name="nickname" id="update-nickname-${plantId}">
+            <input type="text" value="${this.species}" name="species" id="update-species-${plantId}">
+            <input type="text" value="${this.description}" name="description" id="update-description-${plantId}">
+            <input type="text" value="${this.pot}" name="pot" id="update-pot-${plantId}">
         `
         let formDiv = document.createElement('div')
         formDiv.id = `update-form-${plantId}`
@@ -74,8 +74,16 @@ class Plant {
             plantsAdapter.deletePlant(id)
         } else if(e.target.className === "update") {
             let plantId = e.target.dataset.id
+            e.target.className = "save"
+            e.target.innerHTML = "Save"
             this.addUpdateForm(plantId)
+        } else if(e.target.className === "save") {
+            let plantId = e.target.dataset.id
+            e.target.className = "update"
+            e.target.innerHTML = "Update"
+            plantsAdapter.updatePlant(plantId)
         }
+
      }
 
     

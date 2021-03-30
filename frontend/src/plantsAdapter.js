@@ -77,20 +77,20 @@ class PlantsAdapter {
     updatePlant(plantId) {
 
         //similar to creating a plant
-        const plantSpecies = document.getElementById('plant-species')
-        const plantNickname = document.getElementById('plant-nickname')
-        const plantDesc = document.getElementById('plant-description')
-        const plantPot = document.getElementById('plant-pot')
+        const species = document.getElementById(`update-species-${plantId}`).value
+        const nickname = document.getElementById(`update-nickname-${plantId}`).value
+        const description = document.getElementById(`update-description-${plantId}`).value
+        const pot = document.getElementById(`update-pot-${plantId}`).value
 
         let itemObj = {
-            nickname: plantNickname.value,
-            species: plantSpecies.value,
-            description: plantDesc.value,
-            pot: plantPot.value
+            species,
+            nickname,
+            description,
+            pot
         }
 
         let configObj = {
-            method: 'PATCH'
+            method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
@@ -104,6 +104,10 @@ class PlantsAdapter {
             let plant = Plant.all.find(p => p.id == response.data.attributes.id)
             plant.updatePlantOnDom(response.data.attributes)
         })
+            // let plant = Plant.all.find(p => p.id == response.data.attributes.id)
+            // plant.updatePlantOnDom(response.data.attributes)
+
+        console.log("Plant Updated!")
 
     }
 }
