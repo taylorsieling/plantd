@@ -13,5 +13,19 @@ class CaresAdapter {
             })
         })
     }
+
+    handleCareFormSubmit = (e) => {
+        e.preventDefault()
+
+        const careType = document.querySelector('input[name="care-type"]:checked').value
+        const careNotes = document.getElementById('cares-notes').value
+        const careDate = document.getElementById('care-date').value
+
+        let newCareObj = {
+
+        }
+    }
+
 }
+
 

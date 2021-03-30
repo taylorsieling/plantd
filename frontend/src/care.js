@@ -2,7 +2,7 @@ class Care {
 
     static all = []
 
-    constructor(care_type, notes, date, id, plant_id) {
+    constructor({care_type, notes, date, id, plant_id}) {
         this.care_type = care_type
         this.notes = notes
         this.date = date
