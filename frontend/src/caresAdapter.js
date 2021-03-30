@@ -8,7 +8,7 @@ class CaresAdapter {
         .then(res => res.json())
         .then(response => {
             response.data.forEach(el => {
-                let care = new care(el.attributes)
+                let care = new Care(el.attributes)
                 care.addCaresToDom(el)
             })
         })
@@ -22,8 +22,28 @@ class CaresAdapter {
         const careDate = document.getElementById('care-date').value
 
         let newCareObj = {
-
+            careType,
+            careNotes,
+            careDate
         }
+
+        let configObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+
+            body: JSON.stringify(newCareObj)
+        }
+
+        fetch(this.baseUrl, configObj)
+        .then(res => res.json())
+        .then(response => {
+            let care = new Care(response.data.attributes)
+            care.addCaresToDom()
+        })
+        
     }
 
 }

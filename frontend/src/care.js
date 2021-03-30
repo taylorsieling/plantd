@@ -14,4 +14,19 @@ class Care {
 
         Care.all.push(this)
     }
+
+    addEventListeners() {
+        this.element.addEventListener('click', this.handleListClick)
+    }
+
+    addCaresToDom() {
+        this.careList.append(this.careFullRender())
+        this.addEventListeners()
+    }
+
+    careFullRender() {
+        this.element.innerHTML = `
+            
+        `
+    }
 }

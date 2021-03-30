@@ -34,14 +34,17 @@ class Plant {
     
     plantFullRender() {
         this.element.innerHTML = `
-            <li> 
-                <span class="nickname"><strong>${this.nickname}</strong></span> <br>
-                <span class="species"> Species: ${this.species}</span><br>
-                <span class="description"> Description: ${this.description}</span><br>
-                <span class="description"> Current Planter: ${this.pot}</span>
-            </li>
-            <button class="update" data-id="${this.id}">Update</button> 
-            <button class="delete" data-id="${this.id}">Delete</button>
+            <div class="card" id="plant-card-${this.id}">
+                <li> 
+                    <span class="nickname"><strong>${this.nickname}</strong></span> <br>
+                    <span class="species"> Species: ${this.species}</span><br>
+                    <span class="description"> Description: ${this.description}</span><br>
+                    <span class="description"> Current Planter: ${this.pot}</span>
+                </li>
+                <button class="update" data-id="${this.id}">Update</button> 
+                <button class="delete" data-id="${this.id}">Delete</button>
+            </div>
+            <br>
         `
         return this.element
     }
