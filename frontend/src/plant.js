@@ -54,13 +54,27 @@ class Plant {
         this.plantFullRender()
     }
 
+    addUpdateForm(plantId) {
+        let plant = document.querySelector(`#plant-${plantId} li`)
+        let updateForm = `
+            <input type="text" value="${this.nickname} name="nickname" id="update-nickname-${plantId}">
+            <input type="text" value="${this.species} name="species" id="update-species-${plantId}">
+            <input type="text" value="${this.description} name="description" id="update-desc-${plantId}">
+            <input type="text" value="${this.pot} name="pot" id="update-pot-${plantId}">
+        `
+        let formDiv = document.createElement('div')
+        formDiv.id = `update-form-${plantId}`
+        formDiv.innerHTML = updateForm
+        plant.append(formDiv)
+    }
+
     handleListClick = (e) => {
         if (e.target.className === "delete") {
             let id = e.target.dataset.id
             plantsAdapter.deletePlant(id)
         } else if(e.target.className === "update") {
-            let id = e.target.dataset.id
-            this.addUpdateForm()
+            let plantId = e.target.dataset.id
+            this.addUpdateForm(plantId)
         }
      }
 
