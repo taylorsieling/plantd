@@ -28,13 +28,15 @@ class Plant {
     }
 
     addPlantsToDom() {
+        // const plantTabs = document.getElementById('plant-tab-buttons')
         this.plantList.append(this.plantFullRender())
+        // this.plantTabs.append(this.plantTabsRender())
         this.addEventListeners()
     }
     
     plantFullRender() {
         this.element.innerHTML = `
-            <div class="card" id="plant-card-${this.id}">
+            <div id="plant-card-${this.id}">
                 <li> 
                     <span class="nickname"><strong>${this.nickname}</strong></span> <br>
                     <span class="species"> Species: ${this.species}</span><br>
@@ -48,6 +50,14 @@ class Plant {
         `
         return this.element
     }
+
+    // plantTabsRender() {
+    //     console.log('attempting to add tabs')
+    //     this.element.innerHTML = `
+    //         <button class="tablinks">${this.nickname}</button>
+    //     `
+    //     return this.element
+    // }
 
     updatePlantOnDom({nickname, species, description, pot}) {
         this.nickname = nickname
