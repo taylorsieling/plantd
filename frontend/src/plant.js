@@ -14,6 +14,9 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
+        this.careDiv = document.createElement('div')
+        this.careDiv.id = `plant-${this.id}-care`
+
         this.plantList = document.getElementById('plant-list')
 
         Plant.all.push(this)
@@ -30,13 +33,14 @@ class Plant {
     addPlantsToDom() {
         // const plantTabs = document.getElementById('plant-tab-buttons')
         this.plantList.append(this.plantFullRender())
+        this.element.appendChild(this.careDiv)
         // this.plantTabs.append(this.plantTabsRender())
         this.addEventListeners()
     }
     
     plantFullRender() {
         this.element.innerHTML = `
-            <div id="plant-card-${this.id}">
+            <div id="plant-${this.id}-card">
                 <li> 
                     <span class="nickname"><strong>${this.nickname}</strong></span> <br>
                     <span class="species"> Species: ${this.species}</span><br>
