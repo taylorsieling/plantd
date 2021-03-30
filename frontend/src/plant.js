@@ -58,6 +58,9 @@ class Plant {
         if (e.target.className === "delete") {
             let id = e.target.dataset.id
             plantsAdapter.deletePlant(id)
+        } else if(e.target.className === "update") {
+            let id = e.target.dataset.id
+            this.addUpdateForm()
         }
      }
 
