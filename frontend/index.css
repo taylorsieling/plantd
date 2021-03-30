@@ -7,10 +7,35 @@ body {
   }
 
   .header {
-    background-color: #749c40;
+    background-color: #93B75F;
     text-align: center;
     color: #ffffff;
     padding: 10px;
+  }
+
+  .button {
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .delete {
+    background-color: #CF3744;
+  }
+
+  .update {
+    background-color: #4D696F;
+  }
+
+  .give-care {
+    background-color: #93B75F;
   }
 
   .card {

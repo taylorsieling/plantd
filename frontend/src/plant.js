@@ -52,9 +52,9 @@ class Plant {
                     <span class="description"> Description: ${this.description}</span><br>
                     <span class="description"> Current Planter: ${this.pot}</span>
                 </li>
-                <button class="update" data-id="${this.id}">Update</button> 
-                <button class="delete" data-id="${this.id}">Delete</button>
-                <button class="give-care" data-id="${this.id}">Care for ${this.nickname}!</button>
+                <button class="update button" data-id="${this.id}">Update</button> 
+                <button class="delete button" data-id="${this.id}">Delete</button>
+                <button class="give-care button" data-id="${this.id}">Care for ${this.nickname}!</button>
             </div>
             <br>
         `
@@ -91,35 +91,7 @@ class Plant {
         plant.append(formDiv)
     }
 
-    renderNewCareForm(plantId) {
-        let careForm = `
-            <input type="hidden" id="care-plantId" value="${plantId}">
-    
-            <label for="care-type">Care Type:</label><br><br>
-            <input type="radio" name="care-type" id="watering" value="watering">
 
-            <label for="watering">Watering</label><br>
-            <input type="radio" name="care-type" id="repotting" value="repotting">
-
-            <label for="repotting">Repotting</label><br>
-            <input type="radio" name="care-type" id="propagation" value="propagation">
-
-            <label for="propagation">Propagation</label><br><br>
-            <input type="radio" name="care-type" id="other" value="other">
-
-            <label for="other">Other</label> <input type="text" name="other_care"><br><br>
-
-            <label for="care-notes">Notes:</label>
-            <input type="text" name="care-notes" id="care-notes"><br><br>
-
-            <label for="care-date">Date:</label>
-            <input type="date" name="care-date" id="care-date"><br><br>
-
-            <input type="submit" value="Tend to Plant!">
-        `
-        let div = document.getElementById(`plant-${this.id}-care-form`)
-        div.innerHTML = careForm
-    }
 
     handleListClick = (e) => {
         if (e.target.className === "delete") {
@@ -137,7 +109,7 @@ class Plant {
             plantsAdapter.updatePlant(plantId)
         } else if(e.target.className="give-care") {
             let plantId = e.target.dataset.id
-            this.renderNewCareForm(plantId)
+            Care.renderNewCareForm(plantId)
         }
 
      }
