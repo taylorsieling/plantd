@@ -15,8 +15,14 @@ class CaresController < ApplicationController
         if care.save
             render json: CareSerializer.new(care)
         else
-            render json: {messages: 'could not add care'}
+            render json: {messages: 'Could not care for plant at this time.'}
         end
+    end
+
+    def delete
+    end
+
+    def update
     end
 
     private
