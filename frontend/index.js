@@ -5,6 +5,6 @@ const plantsAdapter = new PlantsAdapter
 
 document.addEventListener('DOMContentLoaded', () => {
     plantsAdapter.fetchPlants()
-    plantForm.addEventListener('submit', plantsAdapter.handleCreatePlantSubmit)
+    plantForm.addEventListener('submit', plantsAdapter.handlePlantFormSubmit)
     plantList.addEventListener('click', plantsAdapter.handleListClick)
-})
+}) 

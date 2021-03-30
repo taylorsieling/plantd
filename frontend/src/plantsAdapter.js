@@ -17,7 +17,7 @@ class PlantsAdapter {
         })
     }
 
-    handleCreatePlantSubmit = (e) => {
+    handlePlantFormSubmit = (e) => {
         e.preventDefault()
 
         const plantSpecies = document.getElementById('plant-species')
@@ -74,6 +74,38 @@ class PlantsAdapter {
         console.log("Deleted Successfully!")
     }
     
+    updatePlant(plantId) {
+
+        //similar to creating a plant
+        const plantSpecies = document.getElementById('plant-species')
+        const plantNickname = document.getElementById('plant-nickname')
+        const plantDesc = document.getElementById('plant-description')
+        const plantPot = document.getElementById('plant-pot')
+
+        let itemObj = {
+            nickname: plantNickname.value,
+            species: plantSpecies.value,
+            description: plantDesc.value,
+            pot: plantPot.value
+        }
+
+        let configObj = {
+            method: 'PATCH'
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(itemObj)
+        }
+
+        fetch(this.baseUrl + `/${plantId}`, configObj)
+        .then(res => res.json())
+        .then(response => {
+            let plant = Plant.all.find(p => p.id == response.data.attributes.id)
+            plant.updatePlantOnDom(response.data.attributes)
+        })
+
+    }
 }
 
 
