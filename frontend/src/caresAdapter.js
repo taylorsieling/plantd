@@ -20,11 +20,14 @@ class CaresAdapter {
         const careType = document.querySelector('input[name="care-type"]:checked').value
         const careNotes = document.getElementById('cares-notes').value
         const careDate = document.getElementById('care-date').value
+        const carePlantId = document.getElementById('')
 
         let newCareObj = {
             careType,
             careNotes,
-            careDate
+            careDate,
+            carePlantId
+
         }
 
         let configObj = {

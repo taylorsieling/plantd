@@ -30,6 +30,10 @@ body {
     padding: 16px 16px;
   }
 
+  .care {
+    padding: 20px 20px;
+  }
+
   ul {
     list-style-type: none;
 }

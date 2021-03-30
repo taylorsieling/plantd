@@ -11,6 +11,7 @@ class Care {
         
         this.element = document.createElement('div')
         this.element.id = `care-${this.id}`
+        this.element.className = "care"
 
         this.careDiv = document.getElementById(`plant-${this.plant_id}-care`)
 
@@ -34,10 +35,11 @@ class Care {
             <span class="care-type">${this.date}</span><br>
             <span class="care-type">${this.notes}</span>
             </li>
-            <button class='delete" data-id="${this.id}">Delete</button>
-            <button class='update" data-id="${this.id}">Update</button>
+            <button class="delete "data-id="${this.id}">Delete</button>
+            <button class="update "data-id="${this.id}">Update</button>
             <br><br>
         `
         return this.element
     }
+    
 }
