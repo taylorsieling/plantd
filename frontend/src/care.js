@@ -30,7 +30,14 @@ class Care {
     careFullRender() {
         
         this.element.innerHTML = `
-
+            <li>
+            <span class="care-type">${this.care_type}</span>
+            <span class="care-type">${this.care_date}</span>
+            <span class="care-type">${this.care_notes}</span>
+            </li>
+            <button class='delete" data-id="${this.id}">Delete</button>
+            <button class='update" data-id="${this.id}">Update</button>
         `
+        return this.element
     }
 }
