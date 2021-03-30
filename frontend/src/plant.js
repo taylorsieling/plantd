@@ -46,6 +46,14 @@ class Plant {
         return this.element
     }
 
+    updatePlantOnDom(nickname, species, description, pot) {
+        this.nickname = nickname
+        this.species = species
+        this.description = description
+        this.pot = pot
+        this.plantFullRender()
+    }
+
     handleListClick = (e) => {
         if (e.target.className === "delete") {
             let id = e.target.dataset.id
