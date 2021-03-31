@@ -33,6 +33,13 @@
     padding: 10px;
   }
 
+  .footer {
+    background-color: #B6D2A5;
+    text-align: center;
+    color:#ffffff;
+    padding: 10px;
+  }
+
   .button {
     border-radius: 4px;
     border: none;
