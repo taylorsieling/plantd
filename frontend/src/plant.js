@@ -91,26 +91,62 @@ class Plant {
         plant.append(formDiv)
     }
 
+    // renderNewCareForm(plantId) {
+    //     let careForm = `
+
+    //         <form id="care-form">
+
+    //         <label for="care">Care Type:</label><br>
+
+    //         <input type="radio" name="care-type" id="care-type">
+    //         <label for="watering">Watering</label><br>
+            
+    //         <input type="radio" name="care-type" id="repotting" value="repotting">
+    //         <label for="repotting">Repotting</label><br>
+
+    //         <input type="radio" name="care-type" id="propagation" value="propagation">
+    //         <label for="propagation">Propagation</label><br><br>
+
+    //         <input type="radio" name="care-type" id="other" value="other">
+    //         <label for="other">Other</label> <input type="text" name="other_care"><br><br>
+
+    //         <label for="care-notes">Notes:</label>
+    //         <input type="text" name="care-notes" id="care-notes"><br><br>
+
+    //         <label for="care-date">Date:</label>
+    //         <input type="date" name="care-date" id="care-date"><br><br>
+
+    //         <input type="hidden" id="care-plantId" value="${this.id}">
+
+    //         <input type="submit" value="Tend to Plant!">
+
+    //         </form>
+    //     `
+    //     let div = document.getElementById(`plant-${this.id}-care-form`)
+    //     div.innerHTML = careForm
+    // }
+
 
 
     handleListClick = (e) => {
-        if (e.target.className === "delete") {
+        if (e.target.className === "delete button") {
             let id = e.target.dataset.id
             plantsAdapter.deletePlant(id)
-        } else if(e.target.className === "update") {
+        } else if(e.target.className === "update button") {
             let plantId = e.target.dataset.id
-            e.target.className = "save"
+            e.target.className = "save button"
             e.target.innerHTML = "Save"
             this.addUpdateForm(plantId)
-        } else if(e.target.className === "save") {
+        } else if(e.target.className === "save button") {
             let plantId = e.target.dataset.id
-            e.target.className = "update"
+            e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
-        } else if(e.target.className="give-care") {
-            let plantId = e.target.dataset.id
-            Care.renderNewCareForm(plantId)
         }
+        // } else if(e.target.className="give-care") {
+        //     let plantId = e.target.dataset.id
+        //     this.renderNewCareForm(plantId)
+        // }
 
      }
 
