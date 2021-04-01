@@ -51,6 +51,7 @@
     font-size: 12px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 200px;
   }
 
   .delete {
@@ -62,11 +63,11 @@
   }
 
   .give-care {
-    background-color: #B6D2A5 ;
+    background-color: #016236 ;
   }
 
   .view-care {
-    background-color: #bbbbbb  ;
+    background-color: #016236  ;
   }
   
   .save {

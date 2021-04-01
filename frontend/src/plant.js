@@ -55,11 +55,11 @@ class Plant {
                     <span class="species"><strong>Species:</strong> ${this.species}</span><br><br>
                     <span class="description"><strong>Description:</strong> ${this.description}</span><br><br>
                     <span class="description"><strong>Current Planter</strong> ${this.pot}</span><br><br><br>
-                
+                    
+                    <button class="view-care button" data-id="${this.id}">View Care History</button>
+                    <button class="give-care button" data-id="${this.id}">Give Care</button>
                     <button class="update button" data-id="${this.id}">Update</button> 
                     <button class="delete button" data-id="${this.id}">Delete</button>
-                    <button class="give-care button" data-id="${this.id}">Care for ${this.nickname}!</button>
-                    <button class="view-care button" data-id="${this.id}">View ${this.nickname}'s Care History!</button>
                 </div>
         `
         return this.element
@@ -107,7 +107,5 @@ class Plant {
             plantsAdapter.updatePlant(plantId)
         }
      }
-
-    
-     
+ 
 }
