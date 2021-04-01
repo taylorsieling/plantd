@@ -10,33 +10,27 @@
         <div class="header">
             <h1>plantd.</h1>
         </div>
-        
-        <div style="padding-left: 50px"><h3>Your Plants:</h3></div>
 
-        <div class="row">
-            <div class="column left">
+        <div class="top-button">
+            <button id="new-plant-form-btn" class="button">Add a Plant!</button>
+        </div>
+
+        <div id="plant-form-container" class="main">
+            <form id="plant-form">
+                <label for="plant-nickname">Nickname:</label>
+                <input type="text" name="nickname" id="plant-nickname"><br><br>
+                <label for="plant-species">Species:</label>
+                <input type="text" name="species" id="plant-species"><br><br>
+                <label for="plant-decription">Description:</label>
+                <input type="textarea" name="description" id="plant-description"><br><br>
+                <label for="plant-pot">Planter:</label>
+                <input type="text" name="pot" id="plant-pot"><br><br>
+                <input type="submit" value="Add Plant" class="button">
+            </form>
+        </div>
+
+        <div class="main"><h3>your plants.</h3></div>
                 <div id="plant-list"></div>
-            </div>
-            <div class="column right">
-                <div>
-                    <button id="new-plant-form-btn" class="button" style="width:100%; background-color: #016236;">Add a Plant!</button>
-                    <br><br>
-                </div>
-        
-                <div id="plant-form-container">
-                    <form id="plant-form">
-                        <label for="plant-nickname">Nickname:</label>
-                        <input type="text" name="nickname" id="plant-nickname"><br><br>
-                        <label for="plant-species">Species:</label>
-                        <input type="text" name="species" id="plant-species"><br><br>
-                        <label for="plant-decription">Description:</label>
-                        <input type="textarea" name="description" id="plant-description"><br><br>
-                        <label for="plant-pot">Planter:</label>
-                        <input type="text" name="pot" id="plant-pot"><br><br>
-                        <input type="submit" value="Add Plant" class="button">
-                    </form>
-                </div>
-            </div>
         </div>
         
         <div class="footer">

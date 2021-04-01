@@ -13,40 +13,63 @@ class Care {
         this.element.id = `care-list-${this.plant_id}`
         this.element.className = "care"
 
-        this.careButtons = document.getElementById('plant-buttons')
-
-        // this.careList = document.getElementById(`plant-${this.id}-care-list`)
-
         Care.all.push(this)
     }
+ 
+    get careList() {
+        return document.getElementById(`plant-${this.id}-care-list`)
+    }
 
-    addEventListeners() {
-        this.careButtons.addEventListener('click', this.handleListClick)
+    get buttons() {
+        let button = document.getElementById('plant-buttons')
+        button.addEventListener('click', this.handleButtonClick)
+    }
+
+    addEventListeners() {    
+        // buttons.addEventListener('click', this.handleButtonClick)
+        // this.careButtons.addEventListener('click', this.handleListClick)
         // this.careList.addEventListener('click', this.handleListClick)
         // this.element.addEventListener('click', this.handleListClick)
     }
 
-    addCaresToDom() {
-        // this.careList.append(this.careFullRender())
-        // this.addEventListeners()
+    handleButtonClick() {
+        if (e.target.className === "view-care button") {
+            let id = e.target.dataset.id
+            console.log('clicked view care')
+            this.addCaresToDom()
+        } else if(e.target.name === "update-care") {
+            let careId = e.target.dataset.id
+            e.target.className = "save button"
+            e.target.innerHTML = "Save"
+            this.addUpdateForm(careId)
+        }
+    }
+
+    addCareToDom() {
+        let cares = Care.all.filter(el => el.plant_id == `${this.plant_id}`)
+            cares.careFullRender()
     }
 
     careFullRender() {
-        
-        this.element.innerHTML = `
-            <li>
+        let plant = document.getElementById(`plant-${plantId}-panel`)
+        let care = `
+            <div id="care-${this.id}">
             <span class="care-type">${this.care_type}</span><br>
             <span class="care-type">${this.date}</span><br>
             <span class="care-type">${this.notes}</span>
-            </li>
+            
             <button class="update button" name="update-care" data-id="${this.id}">Update</button>
             <button class="delete button" name="delete-care" data-id="${this.id}">Delete</button>
+            </div>
             <br><br>
         `
-        return this.element
+        let careDiv = document.createElement('div')
+        careDiv.id = `plant-${this.plant_id}-care`
+        careDiv.innerHTML = care
+        plant.append(careDiv)
     }
 
-    renderNewCareForm(id) {
+    renderNewCareForm() {
         let careForm = `
 
             <form id="care-form">
@@ -79,6 +102,7 @@ class Care {
         `
         let div = document.getElementById(`plant-${this.id}-care-form`)
         div.innerHTML = careForm
+
     }
 
 

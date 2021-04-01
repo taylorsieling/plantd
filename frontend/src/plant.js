@@ -14,62 +14,55 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
-        // this.flip = document.getElementsByClassName('flip')
-
-        // this.careList = document.createElement('div')
-        // this.careList.id = 'care-list'
-
-        // this.giveCareDiv = document.createElement('div')
-        // this.giveCareDiv.id = `plant-${this.id}-care-list`
-
-        this.plantList = document.getElementById('plant-list')
+        // this.careDiv = document.createElement('div')
+        // this.careDiv.id = `plant-${this.id}-care`
 
         Plant.all.push(this)
     }
 
-    // get plantList() {
-    //     return document.getElementById('plant-list')
-    // }
+    get plantList() {
+        return document.getElementById('plant-list')
+    }
+
+    get panel() {
+        return document.getElementById(`plant-${this.id}-panel`)
+    }
 
     addEventListeners() {
+        addCardBtn.addEventListener("click", this.showNewPlantForm);
         this.element.addEventListener('click', this.handleListClick)
-        // this.flip.addEventListener('click', this.openPanel)
     }
 
     addPlantsToDom() {
-        // const plantTabs = document.getElementById('plant-tab-buttons')
         this.plantList.append(this.plantFullRender())
-        // this.element.appendChild(this.giveCareDiv)
-        // this.element.appendChild(this.careList)
-        
-        // this.plantTabs.append(this.plantTabsRender())
+        // this.panel.appendChild(this.careDiv)
         this.addEventListeners()
     }
     
     plantFullRender() {
         this.element.innerHTML = `
-                <div class="flip" id="${this.id}-flip">
-                    <h3>${this.nickname}</h3>
-                </div>
-                <div class="panel" id="${this.id}-panel">
-                    <div id="plant-info">
-                        <p><strong>Species:</strong> ${this.species}</p>
-                        <p><strong>Description:</strong> ${this.description}</p>
-                        <p><strong>Current Planter:</strong> ${this.pot}</p>
-                    </div>
-                    <div id="plant-buttons" style="text-align:center">
-                        <button class="view-care button" data-id="${this.id}">View Care History</button>
-                        <button class="give-care button" data-id="${this.id}">Give Care</button>
-                        <button class="update button" data-id="${this.id}">Update</button> 
-                        <button class="delete button" data-id="${this.id}">Delete</button>
+                <div class="row">
+                    <div class="column left">
+                        <div class="flip" id="plant-${this.id}-flip">
+                            <h3>${this.nickname}</h3>
+                        </div>
+                        <div class="panel" id="plant-${this.id}-panel">
+                            <div id="plant-info">
+                                <p><strong>Species:</strong> ${this.species}</p>
+                                <p><strong>Description:</strong> ${this.description}</p>
+                                <p><strong>Current Planter:</strong> ${this.pot}</p>
+                            </div>
+                            <div id="plant-buttons">
+                                <button class="view-care button" data-id="${this.id}">View Care History</button>
+                                <button class="give-care button" data-id="${this.id}">Give Care</button>
+                                <button class="update button" data-id="${this.id}">Update</button> 
+                                <button class="delete button" data-id="${this.id}">Delete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
         `
         return this.element
-    }
-
-    openPanel() {
-        document.getElementById("panel").style.display = "block";
     }
 
     updatePlantOnDom({nickname, species, description, pot}) {
@@ -81,7 +74,7 @@ class Plant {
     }
 
     addUpdateForm(plantId) {
-        let plant = document.getElementById(`${plantId}-panel`)
+        let plant = document.getElementById(`plant-${plantId}-panel`)
         let updateForm = `
             <input type="text" value="${this.nickname}" name="nickname" id="update-nickname-${plantId}">
             <input type="text" value="${this.species}" name="species" id="update-species-${plantId}">
@@ -108,12 +101,14 @@ class Plant {
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
-        } else if(e.target.className === "view-care button") {
-            console.log('clicked view care')
-            let plantId = e.target.dataset.id
-            caresAdapter.fetchCares(plantId)
-            console.log('trying to fetch cares')
         }
-     }
+        // } else if(e.target.className === "view-care button") {
+        //     console.log('clicked view care')
+        //     let care = e.target.dataset.id
+        //     this.addCaresToDom()
+        // }else if(e.target.className === "give-care button") {
+        //     console.log('clicked give care')
+        // }
+    }
  
 }

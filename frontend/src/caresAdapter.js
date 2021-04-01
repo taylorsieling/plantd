@@ -9,7 +9,7 @@ class CaresAdapter {
         .then(response => {
             response.data.forEach(el => {
                 let care = new Care(el.attributes)
-                care.addCaresToDom(el)
+                Care.all.push(care)
             })
         })
     }
@@ -44,7 +44,7 @@ class CaresAdapter {
         .then(res => res.json())
         .then(response => {
             let care = new Care(response.data.attributes)
-            care.addCaresToDom()
+            care.addCareToDom()
         })
         
     }
