@@ -14,6 +14,8 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
+        // this.flip = document.getElementsByClassName('flip')
+
         this.careList = document.createElement('div')
         this.careList.id = 'care-list'
 
@@ -31,6 +33,7 @@ class Plant {
 
     addEventListeners() {
         this.element.addEventListener('click', this.handleListClick)
+        // this.flip.addEventListener('click', this.openPanel)
     }
 
     addPlantsToDom() {
@@ -45,22 +48,25 @@ class Plant {
     
     plantFullRender() {
         this.element.innerHTML = `
-            <div id="plant-${this.id}-card">
-                <h3 class="flip">${this.nickname}<h3>
-                <div id="panel">
-                    <span class="species"> Species: ${this.species}</span><br>
-                    <span class="description"> Description: ${this.description}</span><br>
-                    <span class="description"> Current Planter: ${this.pot}</span><br>
+                <div class="flip" id="${this.id}-flip">
+                    <h3>${this.nickname}</h3>
+                </div>
+                <div class="panel" id="${this.id}-panel">
+                    <span class="species"><strong>Species:</strong> ${this.species}</span><br><br>
+                    <span class="description"><strong>Description:</strong> ${this.description}</span><br><br>
+                    <span class="description"><strong>Current Planter</strong> ${this.pot}</span><br><br><br>
                 
                     <button class="update button" data-id="${this.id}">Update</button> 
                     <button class="delete button" data-id="${this.id}">Delete</button>
                     <button class="give-care button" data-id="${this.id}">Care for ${this.nickname}!</button>
                     <button class="view-care button" data-id="${this.id}">View ${this.nickname}'s Care History!</button>
                 </div>
-            </div>
-            <br>
         `
         return this.element
+    }
+
+    openPanel = (e) => {
+        document.getElementById("panel").style.display = "block";
     }
 
     updatePlantOnDom({nickname, species, description, pot}) {
@@ -72,7 +78,7 @@ class Plant {
     }
 
     addUpdateForm(plantId) {
-        let plant = document.querySelector(`#plant-${plantId} li`)
+        let plant = document.getElementById(`${plantId}-panel`)
         let updateForm = `
             <input type="text" value="${this.nickname}" name="nickname" id="update-nickname-${plantId}">
             <input type="text" value="${this.species}" name="species" id="update-species-${plantId}">
