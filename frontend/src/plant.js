@@ -68,7 +68,7 @@ class Plant {
         return this.element
     }
 
-    openPanel = (e) => {
+    openPanel() {
         document.getElementById("panel").style.display = "block";
     }
 

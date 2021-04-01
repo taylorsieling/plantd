@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="index.css">
     <title>Plantd - Tender, Loving Plant Care</title>
     </head>
@@ -10,7 +10,8 @@
         <div class="header">
             <h1>plantd.</h1>
         </div>
-        <div><h3>Your Plants:</h3></div>
+        
+        <div style="padding-left: 50px"><h3>Your Plants:</h3></div>
 
         <div class="row">
             <div class="column left">
@@ -18,7 +19,8 @@
             </div>
             <div class="column right">
                 <div>
-                    <button id="new-plant-form-btn">Add a Plant!</button>
+                    <button id="new-plant-form-btn" class="button" style="width:100%; background-color: #016236;">Add a Plant!</button>
+                    <br><br>
                 </div>
         
                 <div id="plant-form-container">
@@ -28,10 +30,10 @@
                         <label for="plant-species">Species:</label>
                         <input type="text" name="species" id="plant-species"><br><br>
                         <label for="plant-decription">Description:</label>
-                        <input type="text" name="description" id="plant-description"><br><br>
+                        <input type="textarea" name="description" id="plant-description"><br><br>
                         <label for="plant-pot">Planter:</label>
                         <input type="text" name="pot" id="plant-pot"><br><br>
-                        <input type="submit" value="Add Plant">
+                        <input type="submit" value="Add Plant" class="button">
                     </form>
                 </div>
             </div>
