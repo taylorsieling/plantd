@@ -52,14 +52,17 @@ class Plant {
                     <h3>${this.nickname}</h3>
                 </div>
                 <div class="panel" id="${this.id}-panel">
-                    <span class="species"><strong>Species:</strong> ${this.species}</span><br><br>
-                    <span class="description"><strong>Description:</strong> ${this.description}</span><br><br>
-                    <span class="description"><strong>Current Planter</strong> ${this.pot}</span><br><br><br>
-                    
-                    <button class="view-care button" data-id="${this.id}">View Care History</button>
-                    <button class="give-care button" data-id="${this.id}">Give Care</button>
-                    <button class="update button" data-id="${this.id}">Update</button> 
-                    <button class="delete button" data-id="${this.id}">Delete</button>
+                    <div id="plant-info">
+                        <p><strong>Species:</strong> ${this.species}</p>
+                        <p><strong>Description:</strong> ${this.description}</p>
+                        <p><strong>Current Planter:</strong> ${this.pot}</p>
+                    </div>
+                    <div id="plant-buttons">
+                        <button class="view-care button" data-id="${this.id}">View Care History</button>
+                        <button class="give-care button" data-id="${this.id}">Give Care</button>
+                        <button class="update button" data-id="${this.id}">Update</button> 
+                        <button class="delete button" data-id="${this.id}">Delete</button>
+                    </div>
                 </div>
         `
         return this.element
