@@ -3,6 +3,9 @@ const caresAdapter = new CaresAdapter
 
 // const plantList = document.getElementById('plant-list')
 const plantForm = document.getElementById('plant-form')
+const plantFormContainer = document.getElementById('plant-form-container')
+const plantFormBtn = document.getElementById('new-plant-form-btn')
+const viewCare = document.getElementsByClassName('view-care button')
 
 
 document.addEventListener('DOMContentLoaded', () => {

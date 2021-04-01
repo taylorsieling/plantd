@@ -20,11 +20,6 @@ class Care {
         return document.getElementById(`plant-${this.id}-care-list`)
     }
 
-    get buttons() {
-        let button = document.getElementById('plant-buttons')
-        button.addEventListener('click', this.handleButtonClick)
-    }
-
     addEventListeners() {    
         // buttons.addEventListener('click', this.handleButtonClick)
         // this.careButtons.addEventListener('click', this.handleListClick)

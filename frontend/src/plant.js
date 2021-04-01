@@ -29,14 +29,25 @@ class Plant {
     }
 
     addEventListeners() {
-        addCardBtn.addEventListener("click", this.showNewPlantForm);
+        plantFormBtn.addEventListener("click", this.showNewPlantForm);
         this.element.addEventListener('click', this.handleListClick)
+    }
+
+    showNewPlantForm() {
+        if (plantFormContainer.style.display === 'none') {
+            plantFormContainer.style.display = 'block';
+        } else {
+            plantFormContainer.style.display = 'none';
+        }
     }
 
     addPlantsToDom() {
         this.plantList.append(this.plantFullRender())
-        // this.panel.appendChild(this.careDiv)
         this.addEventListeners()
+        // plantPanel.addEventListener("click", (e) => {
+        //     if (e.target.classList.contains("flipBtn"))
+        //       cardDiv.classList.toggle("flipping");
+        // });
     }
     
     plantFullRender() {

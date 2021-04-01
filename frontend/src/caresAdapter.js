@@ -10,6 +10,8 @@ class CaresAdapter {
             response.data.forEach(el => {
                 let care = new Care(el.attributes)
                 Care.all.push(care)
+                let button = document.getElementById('plant-buttons')
+                button.addEventListener('click', this.handleButtonClick)
             })
         })
     }
