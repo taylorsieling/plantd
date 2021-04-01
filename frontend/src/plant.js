@@ -14,11 +14,11 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
-        this.careDiv = document.createElement('div')
-        this.careDiv.id = `plant-${this.id}-care`
+        this.careList = document.createElement('div')
+        this.careList.id = 'care-list'
 
         this.giveCareDiv = document.createElement('div')
-        this.giveCareDiv.id = `plant-${this.id}-care-form`
+        this.giveCareDiv.id = `plant-${this.id}-care-list`
 
         this.plantList = document.getElementById('plant-list')
 
@@ -37,7 +37,7 @@ class Plant {
         // const plantTabs = document.getElementById('plant-tab-buttons')
         this.plantList.append(this.plantFullRender())
         this.element.appendChild(this.giveCareDiv)
-        this.element.appendChild(this.careDiv)
+        this.element.appendChild(this.careList)
         
         // this.plantTabs.append(this.plantTabsRender())
         this.addEventListeners()
@@ -46,28 +46,22 @@ class Plant {
     plantFullRender() {
         this.element.innerHTML = `
             <div id="plant-${this.id}-card">
-                <li> 
-                    <span class="nickname"><strong>${this.nickname}</strong></span> <br>
+                <h3 class="flip">${this.nickname}<h3>
+                <div id="panel">
                     <span class="species"> Species: ${this.species}</span><br>
                     <span class="description"> Description: ${this.description}</span><br>
-                    <span class="description"> Current Planter: ${this.pot}</span>
-                </li>
-                <button class="update button" data-id="${this.id}">Update</button> 
-                <button class="delete button" data-id="${this.id}">Delete</button>
-                <button class="give-care button" data-id="${this.id}">Care for ${this.nickname}!</button>
+                    <span class="description"> Current Planter: ${this.pot}</span><br>
+                
+                    <button class="update button" data-id="${this.id}">Update</button> 
+                    <button class="delete button" data-id="${this.id}">Delete</button>
+                    <button class="give-care button" data-id="${this.id}">Care for ${this.nickname}!</button>
+                    <button class="view-care button" data-id="${this.id}">View ${this.nickname}'s Care History!</button>
+                </div>
             </div>
             <br>
         `
         return this.element
     }
-
-    // plantTabsRender() {
-    //     console.log('attempting to add tabs')
-    //     this.element.innerHTML = `
-    //         <button class="tablinks">${this.nickname}</button>
-    //     `
-    //     return this.element
-    // }
 
     updatePlantOnDom({nickname, species, description, pot}) {
         this.nickname = nickname
@@ -91,43 +85,6 @@ class Plant {
         plant.append(formDiv)
     }
 
-    // renderNewCareForm(plantId) {
-    //     let careForm = `
-
-    //         <form id="care-form">
-
-    //         <label for="care">Care Type:</label><br>
-
-    //         <input type="radio" name="care-type" id="care-type">
-    //         <label for="watering">Watering</label><br>
-            
-    //         <input type="radio" name="care-type" id="repotting" value="repotting">
-    //         <label for="repotting">Repotting</label><br>
-
-    //         <input type="radio" name="care-type" id="propagation" value="propagation">
-    //         <label for="propagation">Propagation</label><br><br>
-
-    //         <input type="radio" name="care-type" id="other" value="other">
-    //         <label for="other">Other</label> <input type="text" name="other_care"><br><br>
-
-    //         <label for="care-notes">Notes:</label>
-    //         <input type="text" name="care-notes" id="care-notes"><br><br>
-
-    //         <label for="care-date">Date:</label>
-    //         <input type="date" name="care-date" id="care-date"><br><br>
-
-    //         <input type="hidden" id="care-plantId" value="${this.id}">
-
-    //         <input type="submit" value="Tend to Plant!">
-
-    //         </form>
-    //     `
-    //     let div = document.getElementById(`plant-${this.id}-care-form`)
-    //     div.innerHTML = careForm
-    // }
-
-
-
     handleListClick = (e) => {
         if (e.target.className === "delete button") {
             let id = e.target.dataset.id
@@ -143,11 +100,6 @@ class Plant {
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
         }
-        // } else if(e.target.className="give-care") {
-        //     let plantId = e.target.dataset.id
-        //     this.renderNewCareForm(plantId)
-        // }
-
      }
 
     
