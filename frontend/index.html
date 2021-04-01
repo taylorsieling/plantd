@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
     <title>Plantd - Tender, Loving Plant Care</title>
     </head>
@@ -9,28 +10,46 @@
         <div class="header">
             <h1>plantd.</h1>
         </div>
-
         <div><h3>Your Plants:</h3></div>
+
+        <div class="row">
+            <div class="column left">
+                <div id="plant-list"></div>
+            </div>
+            <div class="column right">
+                <div>
+                    <button id="new-plant-form-btn">Add a Plant!</button>
+                </div>
         
-        <div id="plant-list"></div>
-
-        <button id="new-plant-form-btn">Add a Plant!</button>
-
-        <br> <br>
-
-        <div id="plant-form-container">
-            <form id="plant-form">
-                <label for="plant-nickname">Nickname:</label>
-                <input type="text" name="nickname" id="plant-nickname"><br><br>
-                <label for="plant-species">Species:</label>
-                <input type="text" name="species" id="plant-species"><br><br>
-                <label for="plant-decription">Description:</label>
-                <input type="text" name="description" id="plant-description"><br><br>
-                <label for="plant-pot">Planter:</label>
-                <input type="text" name="pot" id="plant-pot"><br><br>
-                <input type="submit" value="Add Plant">
-            </form>
+                <div id="plant-form-container">
+                    <form id="plant-form">
+                        <label for="plant-nickname">Nickname:</label>
+                        <input type="text" name="nickname" id="plant-nickname"><br><br>
+                        <label for="plant-species">Species:</label>
+                        <input type="text" name="species" id="plant-species"><br><br>
+                        <label for="plant-decription">Description:</label>
+                        <input type="text" name="description" id="plant-description"><br><br>
+                        <label for="plant-pot">Planter:</label>
+                        <input type="text" name="pot" id="plant-pot"><br><br>
+                        <input type="submit" value="Add Plant">
+                    </form>
+                </div>
+            </div>
         </div>
+        
+        <div class="footer">
+            <h4>plantd. by Taylor Sieling</h4>
+        </div>
+
+        <script src="src/plant.js" type="text/javascript"></script>
+        <script src="src/plantsAdapter.js" type="text/javascript"></script>
+        <script src="src/care.js" type="text/javascript"></script>
+        <script src="src/caresAdapter.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+
+    </body>
+</html>
+
         <!-- <br> <br>
 
         <div id="care-form-container">
@@ -53,16 +72,3 @@
                 <input type="submit" value="Give TLPC">
             </form>
         </div> -->
-
-        <div class="footer">
-            <h4>plantd. by Taylor Sieling</h4>
-        </div>
-
-        <script src="src/plant.js" type="text/javascript"></script>
-        <script src="src/plantsAdapter.js" type="text/javascript"></script>
-        <script src="src/care.js" type="text/javascript"></script>
-        <script src="src/caresAdapter.js" type="text/javascript"></script>
-        <script src="index.js" type="text/javascript"></script>
-
-    </body>
-</html>

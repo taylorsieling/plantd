@@ -16,11 +16,11 @@ class Plant {
 
         // this.flip = document.getElementsByClassName('flip')
 
-        this.careList = document.createElement('div')
-        this.careList.id = 'care-list'
+        // this.careList = document.createElement('div')
+        // this.careList.id = 'care-list'
 
-        this.giveCareDiv = document.createElement('div')
-        this.giveCareDiv.id = `plant-${this.id}-care-list`
+        // this.giveCareDiv = document.createElement('div')
+        // this.giveCareDiv.id = `plant-${this.id}-care-list`
 
         this.plantList = document.getElementById('plant-list')
 
@@ -39,8 +39,8 @@ class Plant {
     addPlantsToDom() {
         // const plantTabs = document.getElementById('plant-tab-buttons')
         this.plantList.append(this.plantFullRender())
-        this.element.appendChild(this.giveCareDiv)
-        this.element.appendChild(this.careList)
+        // this.element.appendChild(this.giveCareDiv)
+        // this.element.appendChild(this.careList)
         
         // this.plantTabs.append(this.plantTabsRender())
         this.addEventListeners()
@@ -57,7 +57,7 @@ class Plant {
                         <p><strong>Description:</strong> ${this.description}</p>
                         <p><strong>Current Planter:</strong> ${this.pot}</p>
                     </div>
-                    <div id="plant-buttons">
+                    <div id="plant-buttons" style="text-align:center">
                         <button class="view-care button" data-id="${this.id}">View Care History</button>
                         <button class="give-care button" data-id="${this.id}">Give Care</button>
                         <button class="update button" data-id="${this.id}">Update</button> 
@@ -108,6 +108,11 @@ class Plant {
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
+        } else if(e.target.className === "view-care button") {
+            console.log('clicked view care')
+            let plantId = e.target.dataset.id
+            caresAdapter.fetchCares(plantId)
+            console.log('trying to fetch cares')
         }
      }
  

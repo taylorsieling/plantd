@@ -51,7 +51,7 @@
     font-size: 12px;
     margin: 4px 2px;
     cursor: pointer;
-    width: 200px;
+    width: 175px;
   }
 
 
@@ -96,6 +96,26 @@
     background-color: #B6D2A5;
     color: white;
     margin: auto;
+  }
+
+  .column {
+    float: left;
+    padding: 10px;
+  }
+  
+  .left {
+    width: 66%;
+  }
+  
+  .right {
+    width: flex;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
 
