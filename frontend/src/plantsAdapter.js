@@ -105,11 +105,8 @@ class PlantsAdapter {
             let plant = Plant.all.find(p => p.id == response.data.attributes.id)
             plant.updatePlantOnDom(response.data.attributes)
         })
-            // let plant = Plant.all.find(p => p.id == response.data.attributes.id)
-            // plant.updatePlantOnDom(response.data.attributes)
 
         console.log("Plant Updated!")
-
     }
 }
 

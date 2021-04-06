@@ -24,15 +24,14 @@ class Plant {
     get panel() {
         return document.getElementById(`plant-${this.id}-panel`)
     }
-    
-    get plantButtons() {
-        return document.getElementById(`plant-buttons`)
+
+    get cares() {
+        return Care.all.filter(el => el.plant_id == this.id)
     }
 
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
         this.element.addEventListener('click', this.handleListClick)
-        
     }
 
     showNewPlantForm() {
@@ -93,6 +92,7 @@ class Plant {
         formDiv.innerHTML = updateForm
         plant.append(formDiv)
     }
+    
 
     handleListClick = (e) => {
         if (e.target.className === "delete button") {
@@ -108,14 +108,25 @@ class Plant {
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
-        } else if(e.target.className === "view-care button") {
-            console.log('clicked view care')
-            let plantId = e.target.dataset.id
-            // not sure what to call addCareToDom on
-            this.addCareToDom(plantId)
-        } else if(e.target.className === "give-care button") {
-            console.log('clicked give care')
+        } else if (e.target.className === "view-care button") {
+            e.target.className = "close"
+            e.target.innerHTML = "Close Care History"
+            this.cares.forEach(c => {
+                console.log(c)
+                c.addCaresToDom();
+            });
         }
+
+        // } else if(e.target.className === "view-care button") {
+        //     console.log('clicked view care')
+        //     let plantId = e.target.dataset.id
+        //     // not sure what to call addCareToDom on
+        //     console.log(this)
+        //     this.cares.forEach(careFullRender())
+        // } else if(e.target.className === "give-care button") {
+        //     console.log('clicked give care')
     }
+
+    
  
 }

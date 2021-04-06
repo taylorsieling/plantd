@@ -40,34 +40,36 @@
     padding: 10px;
     text-align: center;
     color: black;
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   #top-button {
     float: right;
-    margin-right: 170px;
-    margin-bottom: 0px;
+    /* margin-right: 170px;
+    margin-bottom: 0px; */
   }
 
   #plant-form-container {
     display: none;
     border: 4px solid black;
-    margin: 180px;
+    /* margin: 180px;
     margin-top: 50px;
-    margin-bottom: 0px;
+    margin-bottom: 0px; */
     text-align: left;
   }
 
   #plant-title {
     border: 4px solid black;
-    margin: 180px;
+    margin: 12%;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
   #plant-list {
     border: none;
-    margin: 150px;
-    margin-top: 0px;
+    /* margin: 150px;
+    margin-top: 0px; */
   }
 
   .button {
@@ -94,7 +96,7 @@
     background-color: black;
   }
 
-  .update, .give-care, .view-care {
+  .update, .give-care, .view-care, .close {
     background-color: black;
   }
   

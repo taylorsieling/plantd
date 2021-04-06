@@ -1,21 +1,17 @@
 class CaresAdapter {
     constructor() {
         this.baseUrl = 'http://localhost:3000/cares'
-    }
+    };
 
     fetchCares() {
         fetch(this.baseUrl)
         .then(res => res.json())
         .then(response => {
             response.data.forEach(el => {
-                let care = new Care(el.attributes)
-                Care.all.push(care)
-                // let buttons = document.getElementById('plant-buttons')
-                // buttons.addEventListener('click', this.handleButtonClick)
-                // console.log('added event listener to buttons')
+                new Care(el.attributes)
             })
         })
-    }
+    };
 
     // handleCareFormSubmit = (e) => {
     //     e.preventDefault()
