@@ -109,7 +109,7 @@ class Plant {
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
         } else if (e.target.className === "view-care button") {
-            e.target.className = "close"
+            e.target.className = "close button"
             e.target.innerHTML = "Close Care History"
             this.cares.forEach(c => {
                 console.log(c)

@@ -23,11 +23,13 @@ class Care {
 
     careFullRender() {
         let plant = document.getElementById(`plant-${this.plant_id}-panel`)
+
         let care = `
             <div id="care-${this.id}">
-            <span class="care-type">${this.care_type}</span><br>
-            <span class="care-type">${this.date}</span><br>
-            <span class="care-type">${this.notes}</span>
+            <p class="label"><strong>${this.care_type}</strong></p>
+            <p><strong>Date:</strong> ${this.date}<br>
+                <strong>Notes:</strong> ${this.notes}
+            </p><br>
             
             <button class="update button" name="update-care" data-id="${this.id}">Update</button>
             <button class="delete button" name="delete-care" data-id="${this.id}">Delete</button>
