@@ -17,13 +17,11 @@ class Care {
     };
 
     addCaresToDom() {
-        console.log('inside add cares');
         this.careFullRender();
         // add event listeners for updating and deleting
     }
 
     careFullRender() {
-        console.log('inside care render')
         let plant = document.getElementById(`plant-${this.plant_id}-panel`)
         let care = `
             <div id="care-${this.id}">
