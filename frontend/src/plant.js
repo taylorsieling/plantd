@@ -14,9 +14,6 @@ class Plant {
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
 
-        // this.careDiv = document.createElement('div')
-        // this.careDiv.id = `plant-${this.id}-care`
-
         Plant.all.push(this)
     }
 
@@ -44,34 +41,28 @@ class Plant {
     addPlantsToDom() {
         this.plantList.append(this.plantFullRender())
         this.addEventListeners()
-        // plantPanel.addEventListener("click", (e) => {
-        //     if (e.target.classList.contains("flipBtn"))
-        //       cardDiv.classList.toggle("flipping");
-        // });
     }
     
     plantFullRender() {
         this.element.innerHTML = `
-                <div class="row">
-                    <div class="column left">
-                        <div class="flip" id="plant-${this.id}-flip">
-                            <h3>${this.nickname}</h3>
-                        </div>
-                        <div class="panel" id="plant-${this.id}-panel">
-                            <div id="plant-info">
-                                <p><strong>Species:</strong> ${this.species}</p>
-                                <p><strong>Description:</strong> ${this.description}</p>
-                                <p><strong>Current Planter:</strong> ${this.pot}</p>
-                            </div>
-                            <div id="plant-buttons">
-                                <button class="view-care button" data-id="${this.id}">View Care History</button>
-                                <button class="give-care button" data-id="${this.id}">Give Care</button>
-                                <button class="update button" data-id="${this.id}">Update</button> 
-                                <button class="delete button" data-id="${this.id}">Delete</button>
-                            </div>
-                        </div>
+            <div>
+                <div class="flip" id="plant-${this.id}-flip">
+                    <h3>${this.nickname}</h3>
+                </div>
+                <div class="panel" id="plant-${this.id}-panel">
+                    <div id="plant-info">
+                        <p><strong>Species:</strong> ${this.species}</p>
+                        <p><strong>Description:</strong> ${this.description}</p>
+                        <p><strong>Current Planter:</strong> ${this.pot}</p>
+                    </div>
+                    <div id="plant-buttons">
+                        <button class="view-care button" data-id="${this.id}">View Care History</button>
+                        <button class="give-care button" data-id="${this.id}">Give Care</button>
+                        <button class="update button" data-id="${this.id}">Update</button> 
+                        <button class="delete button" data-id="${this.id}">Delete</button>
                     </div>
                 </div>
+            </div>
         `
         return this.element
     }
