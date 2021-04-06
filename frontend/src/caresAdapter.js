@@ -10,46 +10,47 @@ class CaresAdapter {
             response.data.forEach(el => {
                 let care = new Care(el.attributes)
                 Care.all.push(care)
-                let button = document.getElementById('plant-buttons')
-                button.addEventListener('click', this.handleButtonClick)
+                // let buttons = document.getElementById('plant-buttons')
+                // buttons.addEventListener('click', this.handleButtonClick)
+                // console.log('added event listener to buttons')
             })
         })
     }
 
-    handleCareFormSubmit = (e) => {
-        e.preventDefault()
+    // handleCareFormSubmit = (e) => {
+    //     e.preventDefault()
 
-        const careType = document.querySelector('input[name="care-type"]:checked').value
-        const careNotes = document.getElementById('cares-notes').value
-        const careDate = document.getElementById('care-date').value
-        const carePlantId = document.getElementById('')
+    //     const careType = document.querySelector('input[name="care-type"]:checked').value
+    //     const careNotes = document.getElementById('cares-notes').value
+    //     const careDate = document.getElementById('care-date').value
+    //     const carePlantId = document.getElementById('')
 
-        let newCareObj = {
-            careType,
-            careNotes,
-            careDate,
-            carePlantId
+    //     let newCareObj = {
+    //         careType,
+    //         careNotes,
+    //         careDate,
+    //         carePlantId
 
-        }
+    //     }
 
-        let configObj = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
+    //     let configObj = {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
 
-            body: JSON.stringify(newCareObj)
-        }
+    //         body: JSON.stringify(newCareObj)
+    //     }
 
-        fetch(this.baseUrl, configObj)
-        .then(res => res.json())
-        .then(response => {
-            let care = new Care(response.data.attributes)
-            care.addCareToDom()
-        })
+    //     fetch(this.baseUrl, configObj)
+    //     .then(res => res.json())
+    //     .then(response => {
+    //         let care = new Care(response.data.attributes)
+    //         care.addCareToDom()
+    //     })
         
-    }
+    // }
 
 }
 

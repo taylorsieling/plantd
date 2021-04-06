@@ -13,35 +13,25 @@ class Care {
         this.element.id = `care-list-${this.plant_id}`
         this.element.className = "care"
 
+        this.buttons = document.getElementById('plant-buttons')
+
         Care.all.push(this)
     }
- 
-    get careList() {
-        return document.getElementById(`plant-${this.id}-care-list`)
-    }
 
-    addEventListeners() {    
-        // buttons.addEventListener('click', this.handleButtonClick)
-        // this.careButtons.addEventListener('click', this.handleListClick)
-        // this.careList.addEventListener('click', this.handleListClick)
-        // this.element.addEventListener('click', this.handleListClick)
-    }
+    // get careList() {
+    //     return document.getElementById(`plant-${this.id}-care-list`)
+    // }
+    
+    // get buttons() {
+    //     return document.getElementById('plant-buttons')
+    // }
 
-    handleButtonClick() {
-        if (e.target.className === "view-care button") {
-            let id = e.target.dataset.id
-            console.log('clicked view care')
-            this.addCaresToDom()
-        } else if(e.target.name === "update-care") {
-            let careId = e.target.dataset.id
-            e.target.className = "save button"
-            e.target.innerHTML = "Save"
-            this.addUpdateForm(careId)
-        }
-    }
+    // buttons.addEventListener("click", this.handleButtonClick) {
+    //     console.log('button was clicked');
+    // }
 
-    addCareToDom() {
-        let cares = Care.all.filter(el => el.plant_id == `${this.plant_id}`)
+    addCareToDom(plantId) {
+        let cares = Care.all.filter(el => el.plant_id == plantId)
             cares.careFullRender()
     }
 
@@ -100,29 +90,24 @@ class Care {
 
     }
 
-
-    handleListClick = (e) => {
-        // if (e.target.className === "view-care button") {
-        //     let id = e.target.dataset.id
-        //     console.log('clicked view care')
-        //     this.addCaresToDom(id)
-        // }
-        // } else if(e.target.name === "update-care") {
-        //     let careId = e.target.dataset.id
-        //     e.target.className = "save button"
-        //     e.target.innerHTML = "Save"
-        //     this.addUpdateForm(careId)
-        // } else if(e.target.className === "save button") {
-        //     let careId = e.target.dataset.id
-        //     e.target.className = "update button"
-        //     e.target.innerHTML = "Update"
-        //     caresAdapter.updatecare(careId)
-        // }
-        // } else if(e.target.className="give-care") {
-        //     let careId = e.target.dataset.id
-        //     this.renderNewCareForm(careId)
-        // }
-
-     }
+        // addEventListeners() {    
+    //     buttons.addEventListener('click', this.handleButtonClick)
+    //     // this.careButtons.addEventListener('click', this.handleListClick)
+    //     // this.careList.addEventListener('click', this.handleListClick)
+    //     // this.element.addEventListener('click', this.handleListClick)
     
+
+    // handleButtonClick = (e) => {
+    //     if (e.target.className === "view-care button") {
+    //         // let id = e.target.dataset.id
+    //         console.log('clicked view care')
+    //         this.addCaresToDom()
+    //     // } else if(e.target.name === "update-care") {
+    //     //     let careId = e.target.dataset.id
+    //     //     e.target.className = "save button"
+    //     //     e.target.innerHTML = "Save"
+    //     //     this.addUpdateForm(careId)
+    //     }
+    // }
+
 }

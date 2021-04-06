@@ -24,10 +24,15 @@ class Plant {
     get panel() {
         return document.getElementById(`plant-${this.id}-panel`)
     }
+    
+    get plantButtons() {
+        return document.getElementById(`plant-buttons`)
+    }
 
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
         this.element.addEventListener('click', this.handleListClick)
+        
     }
 
     showNewPlantForm() {
@@ -103,14 +108,14 @@ class Plant {
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
+        } else if(e.target.className === "view-care button") {
+            console.log('clicked view care')
+            let plantId = e.target.dataset.id
+            // not sure what to call addCareToDom on
+            this.addCareToDom(plantId)
+        } else if(e.target.className === "give-care button") {
+            console.log('clicked give care')
         }
-        // } else if(e.target.className === "view-care button") {
-        //     console.log('clicked view care')
-        //     let care = e.target.dataset.id
-        //     this.addCaresToDom()
-        // }else if(e.target.className === "give-care button") {
-        //     console.log('clicked give care')
-        // }
     }
  
 }
