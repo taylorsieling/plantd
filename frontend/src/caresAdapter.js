@@ -13,14 +13,14 @@ class CaresAdapter {
         })
     };
 
-    updateCare(id) {
+    updateCare(careId) {
     
-        const care_type = document.getElementById(`update-care-type-${id}`).value
-        const date = document.getElementById(`update-date-${id}`).value
-        const notes = document.getElementById(`update-notes-${id}`).value
+        const careType = document.getElementById(`update-care-type-${careId}`).value
+        const date = document.getElementById(`update-date-${careId}`).value
+        const notes = document.getElementById(`update-notes-${careId}`).value
 
         let itemObj = {
-            care_type,
+            careType,
             date,
             notes
         }
@@ -34,11 +34,11 @@ class CaresAdapter {
             body: JSON.stringify(itemObj)
         }
 
-        fetch(this.baseUrl + `/${id}`, configObj)
+        fetch(this.baseUrl + `/${careId}`, configObj)
         .then(res => res.json())
         .then(response => {
-            let care = Care.all.find(p => p.id == response.data.attributes.id)
-            care.updateCareOnDom(response.data.attributes)
+            let findCare = Care.all.find(c => c.id == response.data.attributes.id)
+            findCare.updateCareOnDom(response.data.attributes)
         })
 
         console.log("Care Updated!")
@@ -76,8 +76,7 @@ class CaresAdapter {
     //         let care = new Care(response.data.attributes)
     //         care.addCareToDom()
     //     })
-        
-    }
+    
 
 }
 

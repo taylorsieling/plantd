@@ -57,6 +57,20 @@ class Care {
         this.careFullRender()
     }
 
+    addUpdateCareForm(id) {
+        let care = document.getElementById(`care-${id}`)
+        let updateForm = `
+            <input type="text" value="${this.care_type}" name="care_type" id="update-care-type-${id}">
+            <input type="text" value="${this.date}" name="date" id="update-date-${id}">
+            <input type="text" value="${this.notes}" name="notes" id="update-notes-${id}">
+        `
+        let careFormDiv = document.createElement('div')
+        careFormDiv.id = `care-update-form-${id}`
+        careFormDiv.innerHTML = updateForm
+        care.append(careFormDiv)
+    }
+    
+
     addEventListeners() {
         this.careButtons.addEventListener('click', this.handleButtonClick)
     }
@@ -64,10 +78,15 @@ class Care {
     handleButtonClick = (e) => {
         if (e.target.className === "update-care button") {
             console.log('clicked update care')
-            let id = e.target.dataset.id
+            let careId = e.target.dataset.id
             e.target.className = "save-care button"
             e.target.innerHTML = "Save"
-            this.addUpdateForm(id)
+            this.addUpdateCareForm(careId)
+        } else if (e.target.className === "save-care button") {
+            let careId = e.target.dataset.id
+            e.target.className = "save button"
+            e.target.innerHTML = "Save"
+            caresAdapter.updateCare(careId)
         } else if(e.target.className === "delete-care button") {
             console.log('clicked delete care')
             let id = e.target.dataset.id
