@@ -16,9 +16,13 @@ class Care {
         Care.all.push(this)
     };
 
+    get careButtons() {
+        return document.getElementById("care-buttons")
+    }
+
     addCaresToDom() {
         this.careFullRender();
-        // add event listeners for updating and deleting
+        this.addEventListeners();
     }
 
     careFullRender() {
@@ -26,13 +30,17 @@ class Care {
 
         let care = `
             <div id="care-${this.id}">
-            <p class="label"><strong>${this.care_type}</strong></p>
-            <p><strong>Date:</strong> ${this.date}<br>
-                <strong>Notes:</strong> ${this.notes}
-            </p><br>
-            
-            <button class="update button" name="update-care" data-id="${this.id}">Update</button>
-            <button class="delete button" name="delete-care" data-id="${this.id}">Delete</button>
+                <div id="care-info">
+                <p class="label"><strong>${this.care_type}</strong></p>
+                <p>
+                    <strong>Date:</strong> ${this.date}<br>
+                    <strong>Notes:</strong> ${this.notes}
+                </p><br>
+                </div>
+                <div id="care-buttons">
+                    <button class="update-care button" name="update-care" data-id="${this.id}">Update</button>
+                    <button class="delete-care button" name="delete-care" data-id="${this.id}">Delete</button>
+                <div>
             </div>
             <br><br>
         `
@@ -42,22 +50,19 @@ class Care {
         plant.append(careDiv)
     }
 
+    addEventListeners() {
+        this.careButtons.addEventListener('click', this.handleButtonClick)
+    }
 
-    // get addEventListeners() {
-    //     let plantButtons = document.getElementsById('plant-buttons')
-    //     plantButtons.addEventListener('click', this.handleButtonClick)
-    // }
-
-    // handleButtonClick () {
-    //     if (e.target.className === "view-care button") {
-    //         console.log('clicked view care')
-    //         console.log(this)
-    //         this.cares.forEach(careFullRender())
-    //     } else if(e.target.className === "give-care button") {
-    //         console.log('clicked give care')
-    //         console.log(this)
-    //     }
-    // }
+    handleButtonClick = (e) => {
+        if (e.target.className === "update-care button") {
+            console.log('clicked update care')
+            console.log(this)
+        } else if(e.target.className === "delete-care button") {
+            console.log('clicked delete care')
+            console.log(this)
+        }
+    }
 
 
     // renderCares() {
