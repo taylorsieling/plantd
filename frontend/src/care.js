@@ -50,6 +50,13 @@ class Care {
         plant.append(careDiv)
     }
 
+    updateCareOnDom({care_type, date, notes}) {
+        this.care_type = care_type
+        this.date = date
+        this.notes = notes
+        this.careFullRender()
+    }
+
     addEventListeners() {
         this.careButtons.addEventListener('click', this.handleButtonClick)
     }
@@ -57,10 +64,14 @@ class Care {
     handleButtonClick = (e) => {
         if (e.target.className === "update-care button") {
             console.log('clicked update care')
-            console.log(this)
+            let id = e.target.dataset.id
+            e.target.className = "save-care button"
+            e.target.innerHTML = "Save"
+            this.addUpdateForm(id)
         } else if(e.target.className === "delete-care button") {
             console.log('clicked delete care')
-            console.log(this)
+            let id = e.target.dataset.id
+            caresAdapter.deleteCare(id)
         }
     }
 

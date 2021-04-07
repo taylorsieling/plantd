@@ -13,6 +13,37 @@ class CaresAdapter {
         })
     };
 
+    updateCare(id) {
+    
+        const care_type = document.getElementById(`update-care-type-${id}`).value
+        const date = document.getElementById(`update-date-${id}`).value
+        const notes = document.getElementById(`update-notes-${id}`).value
+
+        let itemObj = {
+            care_type,
+            date,
+            notes
+        }
+
+        let configObj = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(itemObj)
+        }
+
+        fetch(this.baseUrl + `/${id}`, configObj)
+        .then(res => res.json())
+        .then(response => {
+            let care = Care.all.find(p => p.id == response.data.attributes.id)
+            care.updateCareOnDom(response.data.attributes)
+        })
+
+        console.log("Care Updated!")
+    }
+
     // handleCareFormSubmit = (e) => {
     //     e.preventDefault()
 
@@ -46,7 +77,7 @@ class CaresAdapter {
     //         care.addCareToDom()
     //     })
         
-    // }
+    }
 
 }
 
