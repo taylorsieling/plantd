@@ -13,6 +13,7 @@ class Plant {
 
         this.element = document.createElement('div')
         this.element.id = `plant-${this.id}`
+        this.element.className = "column"
 
         Plant.all.push(this)
     }
@@ -49,7 +50,7 @@ class Plant {
     
     plantFullRender() {
         this.element.innerHTML = `
-            <div>
+            <div class='card'>
                 <div class="flip" id="plant-${this.id}-flip">
                     <h3>${this.nickname}</h3>
                 </div>
