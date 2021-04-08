@@ -32,7 +32,8 @@ class Plant {
 
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
-        this.element.addEventListener('click', this.handleListClick)
+        this.element.addEventListener('click', this.viewPlantInfo)
+        // need to add additional listeners on plant show page
     }
 
     showNewPlantForm() {
@@ -51,26 +52,40 @@ class Plant {
     plantFullRender() {
         this.element.innerHTML = `
             <div class='card'>
-                <div class="flip" id="plant-${this.id}-flip">
-                    <h3>${this.nickname}</h3>
+                <div class="card-header" id="plant-${this.id}-name">
+                    <h2>${this.nickname}</h2>
                 </div>
-                <div class="panel" id="plant-${this.id}-panel">
+                <div class="card-body" id="plant-${this.id}-info">
                     <div id="plant-info">
                         <p><strong>Species:</strong> ${this.species}</p>
                         <p><strong>Description:</strong> ${this.description}</p>
                         <p><strong>Current Planter:</strong> ${this.pot}</p>
+                        <br>
                     </div>
-                    <div id="plant-buttons">
+                    <div class="card-footer" id="plant-buttons">
                         <button class="view-care button" data-id="${this.id}">View Care History</button>
-                        <button class="give-care button" data-id="${this.id}">Give Care</button>
-                        <button class="update button" data-id="${this.id}">Update</button> 
-                        <button class="delete button" data-id="${this.id}">Delete</button>
+                        
                     </div>
                 </div>
             </div>
         `
         return this.element
     }
+
+    viewPlantInfo() {
+        // hide all plants
+        const plants = document.getElementById('plant-list');
+        plants.style.display = 'none';
+        console.log('hid plants')
+        // create singlular plants view in separate function
+
+
+    }
+
+    // <button class="give-care button" data-id="${this.id}">Give Care</button>
+    // <button class="update button" data-id="${this.id}">Update</button> 
+    // <button class="delete button" data-id="${this.id}">Delete</button>
+
 
     updatePlantOnDom({nickname, species, description, pot}) {
         this.nickname = nickname

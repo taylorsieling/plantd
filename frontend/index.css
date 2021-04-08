@@ -1,6 +1,6 @@
 /* color palette
   seashell #D89384
-  lint #B6D2A5
+  mint #B6D2A5
   emerald #016236
   neon #04DC77
   kelly green #18A558 
@@ -124,14 +124,6 @@
     margin: auto;
   }
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-  }
-  
   .panel {
     /* display: none; */
     font-size: 14px;
@@ -142,17 +134,63 @@
     margin: auto;
   }
 
-  .column {
-    float: left;
-    width: 31%;
+  /* ROWS AND COLUMNS */
+
+  .row {
+    list-style: none;
+    margin: 2em;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(400px, 1fr));
+    height: 100%;
   }
   
   /* Clear floats after the columns */
   .row:after {
     content: "";
-    display: table;
     clear: both;
+    display: table;
   }
+
+  .column {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* CARDS */
+
+  .card {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    transition: box-shadow 0.1s ease-in-out;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-header {
+    display: flow-root;
+    background-color: #82a16f;
+    color: white;
+  }
+
+  .card-body {
+    display: flow-root;
+    padding: 10px;
+    padding-top: 0px;
+    text-align: left;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    border-top: 1px solid #B6D2A5;
+    padding: 20px;
+  }
+
+  /* FORM */
 
   input[type=text] {
     width: 100%;
