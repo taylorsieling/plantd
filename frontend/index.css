@@ -97,14 +97,15 @@
   }
 
   .card-button {
-    background-color: #B6D2A5;
+    background-color: black;
     color: white;
     margin: 0px;
+    width: 100%;
 
   }
 
   .button:hover {
-    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24), 0 8px 10px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 6px 8px 0 rgba(0,0,0,0.19);
   }
 
   .delete {
@@ -210,10 +211,10 @@
   }
 
   .card-footer {
-    border-top: 1px solid #B6D2A5;
     text-align: center;
     background-color: black;
-    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     padding: 0px;
   }
 

@@ -15,8 +15,6 @@ class Plant {
         this.element.id = `plant-${this.id}`
         this.element.className = "column"
 
-        this.card = document.getElementById(`card`)
-
         Plant.all.push(this)
     }
 
@@ -32,9 +30,13 @@ class Plant {
         return Care.all.filter(el => el.plant_id == this.id)
     }
 
+    get card() {
+        return document.getElementById(`plant-${this.id}-button`)
+    }
+
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
-        this.element.addEventListener('click', this.viewPlantInfo)
+        this.card.addEventListener('click', this.viewPlantInfo)
         // need to add additional listeners on plant show page
     }
 
@@ -62,14 +64,15 @@ class Plant {
                     <p>${this.description}</p>
                     <p><strong>Current Planter:</strong> ${this.pot}</p>
                 </div>
-                <div class="card-footer">
-                    <p>dslfjlasdkfjsdl</p>
-                    <button class="card-button" data-id="${this.id}>View Details</button>
+                <div class="card-footer" id="plant-${this.id}-button">
+                    <button class="card-button button" data-id="${this.id}">View Details</button>
                 </div>
             </div>
         `
         return this.element
     }
+
+    // class="card-button" data-id="${this.id}
 
     viewPlantInfo = (e) => {
         console.log(e)
