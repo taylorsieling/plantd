@@ -22,8 +22,8 @@ class Plant {
         return document.getElementById('plant-list')
     }
 
-    get panel() {
-        return document.getElementById(`plant-${this.id}-panel`)
+    get plantShow() {
+        return document.getElementById('plant-show')
     }
 
     get cares() {
@@ -54,18 +54,11 @@ class Plant {
             <div class='card'>
                 <div class="card-header" id="plant-${this.id}-name">
                     <h2>${this.nickname}</h2>
+                    <h3>${this.species}</h3>
                 </div>
                 <div class="card-body" id="plant-${this.id}-info">
-                    <div id="plant-info">
-                        <p><strong>Species:</strong> ${this.species}</p>
-                        <p><strong>Description:</strong> ${this.description}</p>
-                        <p><strong>Current Planter:</strong> ${this.pot}</p>
-                        <br>
-                    </div>
-                    <div class="card-footer" id="plant-buttons">
-                        <button class="view-care button" data-id="${this.id}">View Care History</button>
-                        
-                    </div>
+                    <p>${this.description}</p>
+                    <p><strong>Current Planter:</strong> ${this.pot}</p>
                 </div>
             </div>
         `
@@ -79,10 +72,28 @@ class Plant {
         console.log('hid plants')
 
         // create singlular plants view in separate function
-        const show = document.getElementById('plant-show');
+        const show = document.getElementById('plant-show')
         show.style.display = 'block';
         console.log('blocked show')
 
+        show.append(this.plantShowRender())
+        // show div
+
+    }
+
+    plantShowRender() {
+        console.log('plants show render')
+        show.innerHTML = `
+            <div class='show'> 
+                <div class='plant">
+                    <h2>${this.nickname}</h2>
+                    <p><strong>Species:</strong> ${this.species}</p>
+                    <p><strong>Description:</strong> ${this.description}</p>
+                    <p><strong>Current Planter:</strong> ${this.pot}</p>
+                </div>
+                <div class='care'>
+            </div>
+        `
     }
 
     // <button class="give-care button" data-id="${this.id}">Give Care</button>
@@ -135,17 +146,6 @@ class Plant {
                 c.addCaresToDom();
             });
         }
-
-        // } else if(e.target.className === "view-care button") {
-        //     console.log('clicked view care')
-        //     let plantId = e.target.dataset.id
-        //     // not sure what to call addCareToDom on
-        //     console.log(this)
-        //     this.cares.forEach(careFullRender())
-        // } else if(e.target.className === "give-care button") {
-        //     console.log('clicked give care')
-    }
-
-    
+    }   
  
 }
