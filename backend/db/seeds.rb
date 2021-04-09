@@ -12,28 +12,32 @@ morty = Plant.create({
     species: "Golden Pothos",
     nickname: "Morty",
     description: "Morty is a medium Golden Pothos with several trailing vines. Morty has produced several baby Pothos via cuttings.",
-    pot: "8-Inch Plastic Terra Cotta"
+    pot: "8-Inch Plastic Terra Cotta",
+    image_url: "https://i.imgur.com/71xyQdr.jpg"
 })
 
 paul = Plant.create({
     species: "Aloe Vera",
     nickname: "Paul",
     description: "Paul is a large Aloe Vera with light green leaves. Paul has produced over 10 baby Aloe Veras via pups.",
-    pot: "12-Inch Plastic Terra Cotta"
+    pot: "12-Inch Plastic Terra Cotta",
+    image_url: "https://i.imgur.com/h2EfNxV.jpg"
 })
 
 adele = Plant.create({
     species: "Haworthia",
     nickname: "Adele",
     description: "Adele is a large Haworthia with long leaves. Adele has produced many baby Haworthia's via pups.",
-    pot: "8-Inch Grey, Decorative Ceramic Planter"
+    pot: "8-Inch Grey, Decorative Ceramic Planter",
+    image_url: "https://i.imgur.com/aBq4er2.jpg"
 })
 
 melanie = Plant.create({
     species: "Watermelon Peperomia",
     nickname: "Melanie",
     description: "Melanie is a small Watermelon Peperomia with three large leaves and new growth appearing quickly.",
-    pot: "4-Inch Yellow Ceramic Planter"
+    pot: "4-Inch Yellow Ceramic Planter",
+    image_url: "https://i.imgur.com/QW1fbcy.jpg"
 })
 
 # plant care

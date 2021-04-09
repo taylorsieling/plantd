@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_144848) do
+ActiveRecord::Schema.define(version: 2021_04_09_202923) do
 
   create_table "cares", force: :cascade do |t|
     t.string "care_type"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_144848) do
     t.string "pot"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_url"
   end
 
   add_foreign_key "cares", "plants"

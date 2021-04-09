@@ -4,11 +4,12 @@ class Plant {
 
     static all = []
 
-    constructor({species, nickname, description, pot, id}) {
+    constructor({species, nickname, description, pot, image_url, id}) {
         this.species = species
         this.nickname = nickname
         this.description = description
         this.pot = pot
+        this.image_url = image_url
         this.id = id
 
         this.element = document.createElement('div')
@@ -57,7 +58,7 @@ class Plant {
         this.element.innerHTML = `
             <div class='card' data-id='${this.id}'>
                 <div class="card-header" id="plant-${this.id}-name">
-                    <img class="cardimg" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80" alt="${this.species}" width="100%">
+                    <img class="cardimg" src="${this.image_url}" alt="${this.species}" width="100%">
                 </div>
                 <div class="card-body" id="plant-${this.id}-info">
                     <h2>${this.nickname}</h2>
@@ -72,6 +73,7 @@ class Plant {
         `
         return this.element
     }
+    
 
     // class="card-button" data-id="${this.id}
 
@@ -97,12 +99,21 @@ class Plant {
         const show = document.getElementById('plant-show')
         show.innerHTML = `
             <div class="show"> 
-                <div class="plant">
-                    <h2>${this.nickname}</h2>
-                    <h3>${this.species}</h3>
-                    <p>${this.description}</p>
-                    <p><strong>Current Planter:</strong> ${this.pot}</p>
+                <div class='plant'>
+                    <div class="card-header" id="plant-${this.id}-name">
+                        <img class="cardimg" src="${this.image_url}" alt="${this.species}" width="100%">
+                    </div>
+                    <div class="card-body" id="plant-${this.id}-info">
+                        <h2>${this.nickname}</h2>
+                        <h3>${this.species}</h3>
+                        <p>${this.description}</p>
+                        <p><strong>Current Planter:</strong> ${this.pot}</p>
+                    </div>
+                    <div class="card-footer" id="plant-${this.id}-button">
+                        <button class="card-button button" data-id="${this.id}">View Details</button>
+                    </div>
                 </div>
+            
                 <div class="care">
                     <p> care stuff goes here </p>
                 </div>
@@ -126,6 +137,7 @@ class Plant {
     addUpdateForm(plantId) {
         let plant = document.getElementById(`plant-${plantId}-panel`)
         let updateForm = `
+            <input type="text" value="${this.image_url}" name="image_url" id="update-image-url-${plantId}">
             <input type="text" value="${this.nickname}" name="nickname" id="update-nickname-${plantId}">
             <input type="text" value="${this.species}" name="species" id="update-species-${plantId}">
             <input type="text" value="${this.description}" name="description" id="update-description-${plantId}">

@@ -22,24 +22,28 @@
 
             <div id="plant-form-container" class="main" style="display: none;">
                 <form id="plant-form">
-                    <div class="row">
+                    <div class="row" id="form-row">
                         <div class="column">
-                            <label for="plant-nickname">Nickname:</label><br>
+                            <label for="plant-nickname">Nickname:</label>
                             <input type="text" name="nickname" id="plant-nickname">
                         </div>
                         <div class="column">
-                            <label for="plant-species">Species:</label><br>
+                            <label for="plant-image-url">Image URL:</label>
+                            <input type="text" name="image-url" id="plant-image-url">
+                        </div>
+                        <div class="column">
+                            <label for="plant-species">Species:</label>
                             <input type="text" name="species" id="plant-species">
                         </div>
                         <div class="column">
-                            <label for="plant-pot">Planter:</label><br>
+                            <label for="plant-pot">Planter:</label>
                             <input type="text" name="pot" id="plant-pot">
                         </div>
-                    </div>
-                    <div class="row" style="padding: 10px;">
-                        <label for="plant-decription">Description:</label>
-                        <input type="textarea" name="description" id="plant-description"><br><br>
-                        <input type="submit" value="Add Plant" class="button">
+                        <div class="wide">
+                            <label for="plant-decription">Description:</label>
+                            <input type="textarea" name="description" id="plant-description"><br>
+                            <input type="submit" value="Add Plant" class="button">
+                        </div>
                     </div>
                 </form>
             </div><br>
