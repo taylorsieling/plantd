@@ -77,8 +77,11 @@ class Plant {
         const plants = document.getElementById('plant-list');
         plants.style.display = 'none';
         console.log('hid plants')
-        // create singlular plants view in separate function
 
+        // create singlular plants view in separate function
+        const show = document.getElementById('plant-show');
+        show.style.display = 'block';
+        console.log('blocked show')
 
     }
 
