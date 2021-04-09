@@ -57,10 +57,11 @@ class Plant {
         this.element.innerHTML = `
             <div class='card' data-id='${this.id}'>
                 <div class="card-header" id="plant-${this.id}-name">
-                    <h2>${this.nickname}</h2>
-                    <h3>${this.species}</h3>
+                    <img class="cardimg" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80" alt="${this.species}" width="100%">
                 </div>
                 <div class="card-body" id="plant-${this.id}-info">
+                    <h2>${this.nickname}</h2>
+                    <h3>${this.species}</h3>
                     <p>${this.description}</p>
                     <p><strong>Current Planter:</strong> ${this.pot}</p>
                 </div>
