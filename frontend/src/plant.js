@@ -15,6 +15,8 @@ class Plant {
         this.element.id = `plant-${this.id}`
         this.element.className = "column"
 
+        this.card = document.getElementById(`card`)
+
         Plant.all.push(this)
     }
 
@@ -51,7 +53,7 @@ class Plant {
     
     plantFullRender() {
         this.element.innerHTML = `
-            <div class='card'>
+            <div class='card' data-id='${this.id}'>
                 <div class="card-header" id="plant-${this.id}-name">
                     <h2>${this.nickname}</h2>
                     <h3>${this.species}</h3>
@@ -60,38 +62,46 @@ class Plant {
                     <p>${this.description}</p>
                     <p><strong>Current Planter:</strong> ${this.pot}</p>
                 </div>
+                <div class="card-footer">
+                    <p>dslfjlasdkfjsdl</p>
+                    <button class="card-button" data-id="${this.id}>View Details</button>
+                </div>
             </div>
         `
         return this.element
     }
 
-    viewPlantInfo() {
+    viewPlantInfo = (e) => {
+        console.log(e)
+        const plant = Plant.all.find(p => p.id == e.target.dataset.id)
+        const show = document.getElementById('plant-show')
+        show.append(plant.plantShowRender())
+
         // hide all plants
         const plants = document.getElementById('plant-list');
+        
         plants.style.display = 'none';
-        console.log('hid plants')
-
-        // create singlular plants view in separate function
-        const show = document.getElementById('plant-show')
         show.style.display = 'block';
-        console.log('blocked show')
 
-        show.append(this.plantShowRender())
+        
         // show div
 
     }
 
     plantShowRender() {
         console.log('plants show render')
+        const show = document.getElementById('plant-show')
         show.innerHTML = `
-            <div class='show'> 
-                <div class='plant">
+            <div class="show"> 
+                <div class="plant">
                     <h2>${this.nickname}</h2>
-                    <p><strong>Species:</strong> ${this.species}</p>
-                    <p><strong>Description:</strong> ${this.description}</p>
+                    <h3>${this.species}</h3>
+                    <p>${this.description}</p>
                     <p><strong>Current Planter:</strong> ${this.pot}</p>
                 </div>
-                <div class='care'>
+                <div class="care">
+                    <p> care stuff goes here </p>
+                </div>
             </div>
         `
     }
