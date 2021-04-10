@@ -35,6 +35,10 @@ class Plant {
         return document.getElementById(`plant-${this.id}-button`)
     }
 
+    get plantButtons() {
+        return document.getElementById('plant-buttons')
+    }
+
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
         this.card.addEventListener('click', this.viewPlantInfo)
@@ -82,16 +86,17 @@ class Plant {
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
         const show = document.getElementById('plant-show')
         show.append(plant.plantShowRender())
+        this.addButtonListeners()
 
         // hide all plants
         const plants = document.getElementById('plant-list');
         
         plants.style.display = 'none';
         show.style.display = 'block';
+    }
 
-        
-        // show div
-
+    addButtonListeners() {
+        this.plantButtons.addEventListener('click', this.handleListClick)
     }
 
     plantShowRender() {
