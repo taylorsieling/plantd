@@ -133,6 +133,8 @@ class Plant {
         this.species = species
         this.description = description
         this.pot = pot
+        this.plantShowRender()
+        this.addButtonListeners()
         this.plantFullRender()
     }
 
