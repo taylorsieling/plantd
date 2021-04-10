@@ -107,10 +107,16 @@ class Plant {
                 <h3>${this.species}</h3>
                 <p>${this.description}</p>
                 <p><strong>Current Planter:</strong> ${this.pot}</p>
-                <button class="view-care button" data-id="${this.id}">View Care History</button>
-                <button class="give-care button" data-id="${this.id}">Give Care</button>
-                <button class="update button" data-id="${this.id}">Update</button> 
-                <button class="delete button" data-id="${this.id}">Delete</button>
+                <div id="plant-buttons">
+                    <div class="plant-row" id="plant-button">
+                        <button class="view-care button" data-id="${this.id}">View Care History</button>
+                        <button class="update button" data-id="${this.id}">Update</button> 
+                    </div>
+                    <div class="plant-row" id="plant-button">
+                        <button class="give-care button" data-id="${this.id}">Give Care</button>
+                        <button class="delete button" data-id="${this.id}">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
         `

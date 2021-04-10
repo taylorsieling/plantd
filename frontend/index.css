@@ -106,10 +106,10 @@
     background-color: black;
   }
 
-  .update, .give-care, .view-care, .close {
+  .update, .give-care, .view-care, .delete {
     background-color: black;
     margin: 10px;
-
+    margin-left: 0;
   }
   
   .save {
@@ -208,11 +208,25 @@
     vertical-align: middle;
   }
 
+  .plant-row {
+    padding-left: 0;
+  }
+
   .plant-row:after {
     content: "";
     display: table;
     clear: both;
   }
+
+  #plant-button {
+    float: left;
+    margin: 0;
+  }
+
+  #plant-buttons {
+    margin-left: 0;
+  }
+
 
 @media screen and (max-width: 800px) {
   .plant-col {
