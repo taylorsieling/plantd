@@ -98,36 +98,23 @@ class Plant {
         console.log('plants show render')
         const show = document.getElementById('plant-show')
         show.innerHTML = `
-            <div class="show"> 
-                <div class='plant'>
-                    <div class="card-header" id="plant-${this.id}-name">
-                        <img class="cardimg" src="${this.image_url}" alt="${this.species}" width="100%">
-                    </div>
-                    <div class="card-body" id="plant-${this.id}-info">
-                        <h2>${this.nickname}</h2>
-                        <h3>${this.species}</h3>
-                        <p>${this.description}</p>
-                        <p><strong>Current Planter:</strong> ${this.pot}</p>
-                    </div>
-                </div>
-            
-                <div class="care" id="buttons">
-                    <button class="view-care button" data-id="${this.id}">View Care History</button>
-                    <button class="give-care button" data-id="${this.id}">Give Care</button>
-                    <button class="update button" data-id="${this.id}">Update</button> 
-                    <button class="delete button" data-id="${this.id}">Delete</button>
-                </div>
-
-                <div class="care" id="care-info">
-          
-                </div>
-
+        <div class="plant-row">
+            <div class="plant-col">
+                <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
             </div>
+            <div class="plant-col">
+                <h2>${this.nickname}</h2>
+                <h3>${this.species}</h3>
+                <p>${this.description}</p>
+                <p><strong>Current Planter:</strong> ${this.pot}</p>
+                <button class="view-care button" data-id="${this.id}">View Care History</button>
+                <button class="give-care button" data-id="${this.id}">Give Care</button>
+                <button class="update button" data-id="${this.id}">Update</button> 
+                <button class="delete button" data-id="${this.id}">Delete</button>
+            </div>
+        </div>
         `
     }
-
-    
-
 
     updatePlantOnDom({nickname, species, description, pot}) {
         this.nickname = nickname

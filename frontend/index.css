@@ -34,7 +34,7 @@
     text-align: center;
     color: white;
     padding: 10px;
-    margin: 0px;
+    margin: 0;
   }
 
   .main {
@@ -109,6 +109,7 @@
   .update, .give-care, .view-care, .close {
     background-color: black;
     margin: 10px;
+
   }
   
   .save {
@@ -173,7 +174,7 @@
   }
 
   .plant {
-    width: 30%;
+    width: 25%;
     padding: 20px;
     margin: 20px;
     text-align: left;
@@ -182,7 +183,7 @@
   }
 
   .care {
-    width: 65%;
+    width: 70%;
     padding: 20px;
     margin: 10px;
     text-align: center;
@@ -195,6 +196,35 @@
     clear: both;
     display: table;
   }
+
+  /* SHOW PAGE */
+
+  .plant-col {
+    float: left;
+    width: 50%;
+    padding: 40px;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .plant-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+@media screen and (max-width: 800px) {
+  .plant-col {
+    width: 100%;
+  }
+}
+
+  .displayimg {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    }
 
   /* CARDS */
 
