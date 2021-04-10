@@ -48,7 +48,8 @@ class Plant {
     showNewPlantForm() {
         if (plantFormContainer.style.display === 'none') {
             plantFormContainer.style.display = 'block';
-        } else {
+        } else if (plantFormContainer.style.display = 'block') {
+            document.getElementById('plant-form').reset()
             plantFormContainer.style.display = 'none';
         }
     }
@@ -107,7 +108,7 @@ class Plant {
             <div class="plant-col">
                 <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
             </div>
-            <div class="plant-col">
+            <div class="plant-col" id="plant-${this.id}-care-info">
                 <h2>${this.nickname}</h2>
                 <h3>${this.species}</h3>
                 <p>${this.description}</p>
@@ -136,7 +137,7 @@ class Plant {
     }
 
     addUpdateForm(plantId) {
-        let plant = document.getElementById(`plant-${plantId}-panel`)
+        let plant = document.getElementById(`plant-${this.id}-care-info`)
         let updateForm = `
             <input type="text" value="${this.image_url}" name="image_url" id="update-image-url-${plantId}">
             <input type="text" value="${this.nickname}" name="nickname" id="update-nickname-${plantId}">
@@ -146,6 +147,7 @@ class Plant {
         `
         let formDiv = document.createElement('div')
         formDiv.id = `update-form-${plantId}`
+        formDiv.className = 'plant-update-form'
         formDiv.innerHTML = updateForm
         plant.append(formDiv)
     }
