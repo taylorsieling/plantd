@@ -109,21 +109,24 @@ class Plant {
                         <p>${this.description}</p>
                         <p><strong>Current Planter:</strong> ${this.pot}</p>
                     </div>
-                    <div class="card-footer" id="plant-${this.id}-button">
-                        <button class="card-button button" data-id="${this.id}">View Details</button>
-                    </div>
                 </div>
             
-                <div class="care">
-                    <p> care stuff goes here </p>
+                <div class="care" id="buttons">
+                    <button class="view-care button" data-id="${this.id}">View Care History</button>
+                    <button class="give-care button" data-id="${this.id}">Give Care</button>
+                    <button class="update button" data-id="${this.id}">Update</button> 
+                    <button class="delete button" data-id="${this.id}">Delete</button>
                 </div>
+
+                <div class="care" id="care-info">
+          
+                </div>
+
             </div>
         `
     }
 
-    // <button class="give-care button" data-id="${this.id}">Give Care</button>
-    // <button class="update button" data-id="${this.id}">Update</button> 
-    // <button class="delete button" data-id="${this.id}">Delete</button>
+    
 
 
     updatePlantOnDom({nickname, species, description, pot}) {

@@ -108,6 +108,7 @@
 
   .update, .give-care, .view-care, .close {
     background-color: black;
+    margin: 10px;
   }
   
   .save {
