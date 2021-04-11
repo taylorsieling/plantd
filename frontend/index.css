@@ -29,6 +29,11 @@
     font-style: italic;
   }
 
+  hr {
+    border-top: 2px dotted;
+    margin: 20px;
+  }
+
   .header, .footer {
     background-color: black;
     text-align: center;
@@ -242,8 +247,9 @@
 
   .care-card {
     padding: 20px;
-    margin: 20px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 30px;
+    border: 1px solid black;
+    /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23); */
   }
 
   /* CARDS */
@@ -327,7 +333,7 @@
   }
 
   .label {
-    font-weight: 700;
+    font-weight: 400;
     font-size: large;
   }
 

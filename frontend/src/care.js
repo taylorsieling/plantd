@@ -32,8 +32,8 @@ class Care {
                 <div id="care-info">
                 <h2>${this.care_type}</h2>
                 <p>
-                    <strong>Date:</strong> ${this.date}<br>
-                    <strong>Notes:</strong> ${this.notes}
+                    ${this.notes}<br><br>
+                    <strong>Date:</strong> ${this.date}
                 </p>
                 </div>
                 <div id="care-buttons">
