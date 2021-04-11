@@ -77,14 +77,14 @@ class Care {
         if (e.target.className === "update-care button") {
             console.log('clicked update care')
             let careId = e.target.dataset.id
+            this.addUpdateCareForm(careId)
             e.target.className = "save-care button"
             e.target.innerHTML = "Save"
-            this.addUpdateCareForm(careId)
         } else if (e.target.className === "save-care button") {
             let careId = e.target.dataset.id
-            e.target.className = "save button"
-            e.target.innerHTML = "Save"
             caresAdapter.updateCare(careId)
+            e.target.className = "update-care button"
+            e.target.innerHTML = "Update"
         } else if(e.target.className === "delete-care button") {
             console.log('clicked delete care')
             let id = e.target.dataset.id
