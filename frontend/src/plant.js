@@ -35,6 +35,10 @@ class Plant {
         return document.getElementById('plant-buttons')
     }
 
+    get backToIndex() {
+        return document.getElementById('back-to-index')
+    }
+
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
         this.card.addEventListener('click', this.viewPlantInfo)
@@ -51,11 +55,12 @@ class Plant {
     }
 
     addPlantsToDom() {
-        this.plantList.append(this.plantFullRender())
+        console.log(this)
+        this.plantList.append(this.plantIndexRender())
         this.addEventListeners()
     }
     
-    plantFullRender() {
+    plantIndexRender() {
         this.plantIndex.style.display = 'block';
         this.plantShow.style.display = 'none';
         this.element.innerHTML = `
@@ -87,6 +92,16 @@ class Plant {
 
     addButtonListeners() {
         this.plantButtons.addEventListener('click', this.handleListClick)
+        this.backToIndex.addEventListener('click', this.viewIndex)
+        console.log(this)
+    }
+
+    viewIndex = (e) => {
+        console.log(e)
+        if (e.target.id === "back-to-index") {
+            this.plantIndex.style.display = 'block';
+            this.plantShow.style.display = 'none';
+        }    
     }
 
     plantShowRender() {
@@ -94,6 +109,11 @@ class Plant {
         this.plantIndex.style.display = 'none';
         this.plantShow.style.display = 'block';
         this.plantShow.innerHTML = `
+
+        <div class="main" id="top-button">
+            <button id="back-to-index" class="button">Back to All Plants</button>
+        </div><br>
+        
         <div class="plant-row">
             <div class="plant-col">
                 <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
@@ -106,10 +126,10 @@ class Plant {
                 <div id="plant-buttons">
                     <div class="plant-row" id="plant-button">
                         <button class="view-care button" data-id="${this.id}">View Care History</button>
-                        <button class="update button" data-id="${this.id}">Update</button> 
+                        <button class="give-care button" data-id="${this.id}">Give Care</button>
                     </div>
                     <div class="plant-row" id="plant-button">
-                        <button class="give-care button" data-id="${this.id}">Give Care</button>
+                        <button class="update button" data-id="${this.id}">Update</button> 
                         <button class="delete button" data-id="${this.id}">Delete</button>
                     </div>
                 </div>
@@ -125,7 +145,7 @@ class Plant {
         this.pot = pot
         this.plantShowRender()
         this.addButtonListeners()
-        this.plantFullRender()
+        thisIndex()
     }
 
     addUpdateForm(plantId) {
