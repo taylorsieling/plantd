@@ -28,8 +28,8 @@ class Care {
     }
 
     careFullRender() {
-        let showDiv = document.getElementById(`plant-show`)
-        let care = `
+        let showDiv = document.getElementById(`plant-care`)
+        showDiv.innerHTML= `
             <div class="care-card" id="care-${this.id}">
                 <div id="care-info">
                 <h2>${this.care_type}</h2>
@@ -44,10 +44,6 @@ class Care {
                 <div>
             </div>
         `
-        let careDiv = document.createElement('div')
-        careDiv.id = `plant-${this.plant_id}-care`
-        careDiv.innerHTML = care
-        showDiv.append(careDiv)
     }
 
     updateCareOnDom({care_type, date, notes}) {

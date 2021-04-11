@@ -135,6 +135,7 @@ class Plant {
                 </div>
             </div>
         </div>
+        <div class="plant-care" id="plant-care"></div>
         `
     }
 
@@ -197,6 +198,4 @@ class Plant {
  
 }
 
-// put display none/block into render functions
 // so that delete method will redirect to index
-// remove plant from all array so that it doesn't show on index after deleting
