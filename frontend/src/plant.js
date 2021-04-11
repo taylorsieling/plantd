@@ -77,7 +77,6 @@ class Plant {
         return this.element
     }
     
-    // class="card-button" data-id="${this.id}
 
     viewPlantInfo = (e) => {
         console.log(e)
@@ -169,6 +168,9 @@ class Plant {
         } else if (e.target.className === "close button") {
             e.target.className = "view-care button"
             e.target.innerHTML = "View Care History"
+        } else if (e.target.className === "give-care button") {
+            let plantId = e.target.dataset.id
+            this.plantShow.renderNewCareForm(plantId);
         }
         
     }   

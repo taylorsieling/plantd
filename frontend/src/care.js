@@ -13,6 +13,8 @@ class Care {
         this.element.id = `care-list-${this.plant_id}`
         this.element.className = "care"
 
+        this.plantShow = document.getElementById('plant-show')
+
         Care.all.push(this)
     };
 
@@ -77,14 +79,14 @@ class Care {
         if (e.target.className === "update-care button") {
             console.log('clicked update care')
             let careId = e.target.dataset.id
-            this.addUpdateCareForm(careId)
             e.target.className = "save-care button"
             e.target.innerHTML = "Save"
+            this.addUpdateCareForm(careId)
         } else if (e.target.className === "save-care button") {
             let careId = e.target.dataset.id
-            caresAdapter.updateCare(careId)
             e.target.className = "update-care button"
             e.target.innerHTML = "Update"
+            caresAdapter.updateCare(careId)
         } else if(e.target.className === "delete-care button") {
             console.log('clicked delete care')
             let id = e.target.dataset.id
@@ -92,45 +94,32 @@ class Care {
         }
     }
 
+    renderNewCareForm(plantId) {
+        let careForm = `
 
-    // renderCares() {
-    //     console.log('inside renderCares')
-    // }
+            <form id="care-form">
 
-    // renderNewCareForm() {
-    //     let careForm = `
+            <label for="care">Care Type:</label><br>
+            <input type="text" name="care-type" id="care-type">
 
-    //         <form id="care-form">
+            <label for="care-notes">Notes:</label>
+            <input type="text" name="care-notes" id="care-notes"><br><br>
 
-    //         <label for="care">Care Type:</label><br>
+            <label for="care-date">Date:</label>
+            <input type="date" name="care-date" id="care-date"><br><br>
 
-    //         <input type="radio" name="care-type" id="care-type">
-    //         <label for="watering">Watering</label><br>
-            
-    //         <input type="radio" name="care-type" id="repotting" value="repotting">
-    //         <label for="repotting">Repotting</label><br>
+            <input type="hidden" id="care-plantId" value="${this.id}">
 
-    //         <input type="radio" name="care-type" id="propagation" value="propagation">
-    //         <label for="propagation">Propagation</label><br><br>
+            <input type="submit" value="Tend to Plant!">
 
-    //         <input type="radio" name="care-type" id="other" value="other">
-    //         <label for="other">Other</label> <input type="text" name="other_care"><br><br>
-
-    //         <label for="care-notes">Notes:</label>
-    //         <input type="text" name="care-notes" id="care-notes"><br><br>
-
-    //         <label for="care-date">Date:</label>
-    //         <input type="date" name="care-date" id="care-date"><br><br>
-
-    //         <input type="hidden" id="care-plantId" value="${this.id}">
-
-    //         <input type="submit" value="Tend to Plant!">
-
-    //         </form>
-    //     `
-    //     let div = document.getElementById(`plant-${this.id}-care-form`)
-    //     div.innerHTML = careForm
-    // }
+            </form>
+        `
+        let formDiv = document.createElement('div')
+        formDiv.id = "care-form"
+        formDiv.className = 'new-care-form'
+        formDiv.innerHTML = careForm
+        plantShow.append(formDiv)
+    }
 
     
 }

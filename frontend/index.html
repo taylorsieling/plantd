@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
         <script src="https://use.fontawesome.com/94041a267b.js"></script>
-        <title>Plantd - Tender, Loving Plant Care</title>
+        <title>Plantd - Houseplant Tracker</title>
     </head>
     <body>
 
@@ -14,41 +14,40 @@
             <h1>plantd.</h1>
         </div>
 
-        <div class="page">
-
-            <div class="main" id="top-button">
-                <button id="new-plant-form-btn" class="button">Add a Plant!</button>
-            </div><br>
-
-            <div id="plant-form-container" class="main" style="display: none;">
-                <form id="plant-form">
-                    <div class="row" id="form-row">
-                        <div class="column">
-                            <label for="plant-nickname">Nickname:</label>
-                            <input type="text" name="nickname" id="plant-nickname">
-                        </div>
-                        <div class="column">
-                            <label for="plant-image-url">Image URL:</label>
-                            <input type="text" name="image-url" id="plant-image-url">
-                        </div>
-                        <div class="column">
-                            <label for="plant-species">Species:</label>
-                            <input type="text" name="species" id="plant-species">
-                        </div>
-                        <div class="column">
-                            <label for="plant-pot">Planter:</label>
-                            <input type="text" name="pot" id="plant-pot">
-                        </div>
-                        <div class="wide">
-                            <label for="plant-decription">Description:</label>
-                            <input type="textarea" name="description" id="plant-description"><br>
-                            <input type="submit" value="Add Plant" class="button">
-                        </div>
-                    </div>
-                </form>
-            </div><br>
-
+        <div>
             <div id="plant-index">
+                <div class="main" id="top-button">
+                    <button id="new-plant-form-btn" class="button">Add a Plant!</button>
+                </div><br>
+
+                <div id="plant-form-container" class="main" style="display: none;">
+                    <form id="plant-form">
+                        <div class="row" id="form-row">
+                            <div class="column">
+                                <label for="plant-nickname">Nickname:</label>
+                                <input type="text" name="nickname" id="plant-nickname">
+                            </div>
+                            <div class="column">
+                                <label for="plant-image-url">Image URL:</label>
+                                <input type="text" name="image-url" id="plant-image-url">
+                            </div>
+                            <div class="column">
+                                <label for="plant-species">Species:</label>
+                                <input type="text" name="species" id="plant-species">
+                            </div>
+                            <div class="column">
+                                <label for="plant-pot">Planter:</label>
+                                <input type="text" name="pot" id="plant-pot">
+                            </div>
+                            <div class="wide">
+                                <label for="plant-decription">Description:</label>
+                                <input type="textarea" name="description" id="plant-description"><br>
+                                <input type="submit" value="Add Plant" class="button">
+                            </div>
+                        </div>
+                    </form>
+                </div><br>
+
                 <div class="main" id="plant-title"><h3>your plants.</h3></div>
                 <div class="row" id="plant-list"></div>
             </div>
