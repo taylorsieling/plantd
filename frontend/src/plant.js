@@ -94,8 +94,7 @@ class Plant {
         console.log('plants show render')
         this.plantIndex.style.display = 'none';
         this.plantShow.style.display = 'block';
-        const show = document.getElementById('plant-show')
-        show.innerHTML = `
+        this.plantShow.innerHTML = `
         <div class="plant-row">
             <div class="plant-col">
                 <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
@@ -167,7 +166,11 @@ class Plant {
                 console.log(c)
                 c.addCaresToDom();
             });
+        } else if (e.target.className === "close button") {
+            e.target.className = "view-care button"
+            e.target.innerHTML = "View Care History"
         }
+        
     }   
  
 }
