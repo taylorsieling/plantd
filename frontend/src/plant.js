@@ -186,9 +186,12 @@ class Plant {
                 console.log(c)
                 c.addCaresToDom();
             });
+            document.getElementById("plant-care").style.display = 'block';
         } else if (e.target.className === "close button") {
+            let careDiv = document.getElementById("plant-care")
             e.target.className = "view-care button"
             e.target.innerHTML = "View Care History"
+            careDiv.style.display = 'none'
         } else if (e.target.className === "give-care button") {
             let plantId = e.target.dataset.id
             this.plantShow.renderNewCareForm(plantId);
