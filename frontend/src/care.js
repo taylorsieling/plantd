@@ -30,18 +30,17 @@ class Care {
         let care = `
             <div class="care-card" id="care-${this.id}">
                 <div id="care-info">
-                <p class="label"><strong>${this.care_type}</strong></p>
+                <h2>${this.care_type}</h2>
                 <p>
                     <strong>Date:</strong> ${this.date}<br>
                     <strong>Notes:</strong> ${this.notes}
-                </p><br>
+                </p>
                 </div>
                 <div id="care-buttons">
                     <button class="update-care button" name="update-care" data-id="${this.id}">Update</button>
                     <button class="delete-care button" name="delete-care" data-id="${this.id}">Delete</button>
                 <div>
             </div>
-            <br><br>
         `
         let careDiv = document.createElement('div')
         careDiv.id = `plant-${this.plant_id}-care`
