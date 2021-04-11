@@ -1,14 +1,16 @@
 class CaresController < ApplicationController
 
     def index
-        all_care = Care.all
-        render json: CareSerializer.new(all_care)
+        cares = Care.all
+        render json: CareSerializer.new(cares)
     end
 
     def show
         care = Care.find(params[:id])
-        render json: CareSerializer.new(all_care, {include: [:care]})
+        render json: CareSerializer.new(care)
     end
+
+    # {include: [:care]}
 
     def create
         care = Care.find(params[:id])
@@ -31,7 +33,7 @@ class CaresController < ApplicationController
     private
 
     def care_params 
-        params.require(:care).permit(:care_type, :date, :notes, :care_id)
+        params.require(:care).permit(:care_type, :date, :notes)
     end
 
 end

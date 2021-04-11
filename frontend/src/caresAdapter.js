@@ -15,12 +15,12 @@ class CaresAdapter {
 
     updateCare(careId) {
     
-        const careType = document.getElementById(`update-care-type-${careId}`).value
+        const care_type = document.getElementById(`update-care-type-${careId}`).value
         const date = document.getElementById(`update-date-${careId}`).value
         const notes = document.getElementById(`update-notes-${careId}`).value
 
         let itemObj = {
-            careType,
+            care_type,
             date,
             notes
         }
@@ -37,8 +37,8 @@ class CaresAdapter {
         fetch(this.baseUrl + `/${careId}`, configObj)
         .then(res => res.json())
         .then(response => {
-            let findCare = Care.all.find(c => c.id == response.data.attributes.id)
-            findCare.updateCareOnDom(response.data.attributes)
+            let care = Care.all.find(c => c.id == response.data.attributes.id)
+            care.updateCareOnDom(response.data.attributes)
         })
 
         console.log("Care Updated!")

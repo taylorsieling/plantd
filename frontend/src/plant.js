@@ -146,7 +146,7 @@ class Plant {
         this.pot = pot
         this.plantShowRender()
         this.addButtonListeners()
-        thisIndex()
+        // 
     }
 
     addUpdateForm(plantId) {
@@ -166,19 +166,23 @@ class Plant {
     } 
 
     handleListClick = (e) => {
+        // delete plant
         if (e.target.className === "delete button") {
             let id = e.target.dataset.id
             plantsAdapter.deletePlant(id)
+        // update plant
         } else if(e.target.className === "update button") {
             let plantId = e.target.dataset.id
             e.target.className = "save button"
             e.target.innerHTML = "Save"
             this.addUpdateForm(plantId)
+            // save updated plant
         } else if(e.target.className === "save button") {
             let plantId = e.target.dataset.id
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
+            // view care history
         } else if (e.target.className === "view-care button") {
             e.target.className = "close button"
             e.target.innerHTML = "Close Care History"
@@ -187,11 +191,13 @@ class Plant {
                 c.addCaresToDom();
             });
             document.getElementById("plant-care").style.display = 'block';
+            // close care history
         } else if (e.target.className === "close button") {
             let careDiv = document.getElementById("plant-care")
             e.target.className = "view-care button"
             e.target.innerHTML = "View Care History"
             careDiv.style.display = 'none'
+            // give care form
         } else if (e.target.className === "give-care button") {
             let plantId = e.target.dataset.id
             this.plantShow.renderNewCareForm(plantId);

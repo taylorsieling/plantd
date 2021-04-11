@@ -56,7 +56,7 @@ class Care {
     addUpdateCareForm(id) {
         let care = document.getElementById(`care-${id}`)
         let updateForm = `
-            <input type="text" value="${this.care_type}" name="care_type" id="update-care-type-${id}">
+            <input type="text" value="${this.care_type}" name="care-type" id="update-care-type-${id}">
             <input type="text" value="${this.date}" name="date" id="update-date-${id}">
             <input type="text" value="${this.notes}" name="notes" id="update-notes-${id}">
         `
@@ -72,7 +72,11 @@ class Care {
     }
 
     handleButtonClick = (e) => {
-        if (e.target.className === "update-care button") {
+        if (e.target.className === "delete-care button") {
+            console.log('clicked delete care')
+            let id = e.target.dataset.id
+            caresAdapter.deleteCare(id)
+        } else if (e.target.className === "update-care button") {
             console.log('clicked update care')
             let careId = e.target.dataset.id
             e.target.className = "save-care button"
@@ -83,14 +87,10 @@ class Care {
             e.target.className = "update-care button"
             e.target.innerHTML = "Update"
             caresAdapter.updateCare(careId)
-        } else if(e.target.className === "delete-care button") {
-            console.log('clicked delete care')
-            let id = e.target.dataset.id
-            caresAdapter.deleteCare(id)
         }
     }
 
-    renderNewCareForm(plantId) {
+    renderNewCareForm() {
         let careForm = `
 
             <form id="care-form">

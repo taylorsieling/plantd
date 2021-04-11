@@ -42,8 +42,4 @@ class PlantsController < ApplicationController
         params.require(:plant).permit(:species, :nickname, :description, :pot, :image_url)
     end
 
-    # def set_plant
-    #     plant = Plant.find(params[:id])
-    # end
-
 end
