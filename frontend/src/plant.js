@@ -16,15 +16,11 @@ class Plant {
         this.element.id = `plant-${this.id}`
         this.element.className = "column"
 
+        this.plantIndex = document.getElementById('plant-index')
+        this.plantList = document.getElementById('plant-list')
+        this.plantShow = document.getElementById('plant-show')
+
         Plant.all.push(this)
-    }
-
-    get plantList() {
-        return document.getElementById('plant-list')
-    }
-
-    get plantShow() {
-        return document.getElementById('plant-show')
     }
 
     get cares() {
@@ -60,8 +56,10 @@ class Plant {
     }
     
     plantFullRender() {
+        this.plantIndex.style.display = 'block';
+        this.plantShow.style.display = 'none';
         this.element.innerHTML = `
-            <div class='card' data-id='${this.id}'>
+            <div class='card' data-id='${this.id}' id='card-${this.id}'>
                 <div class="card-header" id="plant-${this.id}-name">
                     <img class="cardimg" src="${this.image_url}" alt="${this.species}" width="100%">
                 </div>
@@ -79,21 +77,13 @@ class Plant {
         return this.element
     }
     
-
     // class="card-button" data-id="${this.id}
 
     viewPlantInfo = (e) => {
         console.log(e)
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
-        const show = document.getElementById('plant-show')
-        show.append(plant.plantShowRender())
+        this.plantShow.append(plant.plantShowRender())
         this.addButtonListeners()
-
-        // hide all plants
-        const plants = document.getElementById('plant-list');
-        
-        plants.style.display = 'none';
-        show.style.display = 'block';
     }
 
     addButtonListeners() {
@@ -102,6 +92,8 @@ class Plant {
 
     plantShowRender() {
         console.log('plants show render')
+        this.plantIndex.style.display = 'none';
+        this.plantShow.style.display = 'block';
         const show = document.getElementById('plant-show')
         show.innerHTML = `
         <div class="plant-row">
@@ -152,8 +144,7 @@ class Plant {
         formDiv.className = 'plant-update-form'
         formDiv.innerHTML = updateForm
         plant.append(formDiv)
-    }
-    
+    } 
 
     handleListClick = (e) => {
         if (e.target.className === "delete button") {
@@ -180,3 +171,7 @@ class Plant {
     }   
  
 }
+
+// put display none/block into render functions
+// so that delete method will redirect to index
+// remove plant from all array so that it doesn't show on index after deleting
