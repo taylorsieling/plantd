@@ -10,4 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
     plantsAdapter.fetchPlants()
     caresAdapter.fetchCares()
     plantForm.addEventListener('submit', plantsAdapter.handlePlantFormSubmit)
+
 }) 

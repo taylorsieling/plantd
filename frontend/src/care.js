@@ -97,7 +97,11 @@ class Care {
     
 
     addEventListeners() {
-        this.careButtons.addEventListener('click', this.handleButtonClick)
+        this.careButtons.addEventListener('click', this.handleCareFormSubmit)
+    }
+
+    addCareFormListeners() {
+        
     }
 
     handleButtonClick = (e) => {
@@ -122,32 +126,6 @@ class Care {
         }
     }
 
-    renderNewCareForm() {
-        let careForm = `
 
-            <form id="care-form">
 
-            <label for="care">Care Type:</label><br>
-            <input type="text" name="care-type" id="care-type">
-
-            <label for="care-notes">Notes:</label>
-            <input type="text" name="care-notes" id="care-notes"><br><br>
-
-            <label for="care-date">Date:</label>
-            <input type="date" name="care-date" id="care-date"><br><br>
-
-            <input type="hidden" id="care-plantId" value="${this.id}">
-
-            <input type="submit" value="Tend to Plant!">
-
-            </form>
-        `
-        let formDiv = document.createElement('div')
-        formDiv.id = "care-form"
-        formDiv.className = 'new-care-form'
-        formDiv.innerHTML = careForm
-        plantShow.append(formDiv)
-    }
-
-    
 }

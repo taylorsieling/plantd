@@ -78,39 +78,41 @@ class CaresAdapter {
         console.log("Deleted Successfully!")
     }
 
-    // handleCareFormSubmit = (e) => {
-    //     e.preventDefault()
+    handleCareFormSubmit = (e) => {
+        e.preventDefault()
 
-    //     const careType = document.querySelector('input[name="care-type"]:checked').value
-    //     const careNotes = document.getElementById('cares-notes').value
-    //     const careDate = document.getElementById('care-date').value
-    //     const carePlantId = document.getElementById('')
+        const care_type = document.getElementById('care-type').value
+        const notes = document.getElementById('care-notes').value
+        const date = document.getElementById('care-date').value
+        const plant_id = document.getElementById('care-plantId').value
 
-    //     let newCareObj = {
-    //         careType,
-    //         careNotes,
-    //         careDate,
-    //         carePlantId
+        let newCareObj = {
+            care_type,
+            notes,
+            date,
+            plant_id
+        }
 
-    //     }
+        let configObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
 
-    //     let configObj = {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
+            body: JSON.stringify(newCareObj)
+        }
 
-    //         body: JSON.stringify(newCareObj)
-    //     }
+        fetch(this.baseUrl, configObj)
+        .then(res => res.json())
+        .then(response => {
+            console.log(response)
+            let care = new Care(response.data.attributes)
+            care.addCaresToDom()
+        })
 
-    //     fetch(this.baseUrl, configObj)
-    //     .then(res => res.json())
-    //     .then(response => {
-    //         let care = new Care(response.data.attributes)
-    //         care.addCareToDom()
-    //     })
-    
+        console.log('added care')
+    }
 
 }
 

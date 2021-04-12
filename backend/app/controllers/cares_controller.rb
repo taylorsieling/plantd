@@ -10,14 +10,12 @@ class CaresController < ApplicationController
         render json: CareSerializer.new(care)
     end
 
-    # {include: [:care]}
-
     def create
-        care = Care.find(params[:id])
+        care = Care.new(care_params)
         if care.save
             render json: CareSerializer.new(care)
         else
-            render json: {messages: 'Could not care for care at this time.'}
+            render json: {error: 'Could not care for plant at this time.'}
         end
     end
 
@@ -33,7 +31,7 @@ class CaresController < ApplicationController
     private
 
     def care_params 
-        params.require(:care).permit(:care_type, :date, :notes)
+        params.require(:care).permit(:care_type, :date, :notes, :plant_id)
     end
 
 end

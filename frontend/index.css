@@ -91,7 +91,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    margin: 4px 2px;
+    margin: 10px;
+    margin-left: 0;
     cursor: pointer;
     width: 175px;
   }
@@ -106,14 +107,8 @@
   .button:hover {
     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 6px 8px 0 rgba(0,0,0,0.19);
   }
-
-  .update, .give-care, .view-care, .delete, .close, .save, .update-care, .delete-care {
-    background-color: black;
-    margin: 10px;
-    margin-left: 0;
-  }
   
-  .save {
+  .save, .save-care {
     background-color: #18A558;
   }
 

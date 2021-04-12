@@ -44,6 +44,7 @@ class PlantsAdapter {
         fetch(this.baseUrl, configObj)
         .then(res => res.json())
         .then(response => {
+            console.log(response)
             let plant = new Plant(response.data.attributes)
             plant.addPlantsToDom()
         })
