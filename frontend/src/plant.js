@@ -190,14 +190,9 @@ class Plant {
         }
     }
 
-    handleCareOptions() {
-
-    }
-
-    handleListClick = (e) => {
-      
-            // view care history
-        } else if (e.target.className === "view-care button") {
+    handleCareOptions = (e) => {
+        // view care history
+        if (e.target.className === "view-care button") {
             e.target.className = "close button"
             e.target.innerHTML = "Close Care History"
             this.cares.forEach(c => {
@@ -205,21 +200,17 @@ class Plant {
                 c.addCaresToDom();
             });
             document.getElementById("plant-care").style.display = 'block';
-            // close care history
+        // close care history
         } else if (e.target.className === "close button") {
             let careDiv = document.getElementById("plant-care")
             e.target.className = "view-care button"
             e.target.innerHTML = "View Care History"
             careDiv.style.display = 'none'
-            // give care form
+        // give care form
         } else if (e.target.className === "give-care button") {
             let plantId = e.target.dataset.id
             let plantShow = document.getElementById('plant-show')
             plantShow.renderNewCareForm(plantId);
         }
-        
-    }   
- 
-}
+    }
 
-// so that delete method will redirect to index
