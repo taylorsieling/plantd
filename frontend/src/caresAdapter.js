@@ -44,6 +44,40 @@ class CaresAdapter {
         console.log("Care Updated!")
     }
 
+    deleteCare(id) {
+
+        let configObj = {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }
+    
+        fetch(this.baseUrl + `/${id}`, configObj)
+        .then(res => res.json())
+        .then(response => {
+            alert(response.message)
+        });
+
+        // remove plant from all array and remove plant div from DOM
+
+        // let plant = document.getElementById(`card-${id}`);
+        // let plantDiv = document.getElementById(`plant-${id}`);
+        // let findIndex = Plant.all.findIndex(p => p.id == plant.dataset.id)
+        // Plant.all.splice(findIndex, 1)
+        // plantDiv.remove();
+
+        // re-render plant index
+        // let plants = Plant.all
+        // plants.forEach(p => {
+        //     console.log(p)
+        //     p.addPlantsToDom();
+        // });
+ 
+        console.log("Deleted Successfully!")
+    }
+
     // handleCareFormSubmit = (e) => {
     //     e.preventDefault()
 

@@ -33,11 +33,11 @@ class Care {
         let careInfo = `
             <div class="care-card" id="care-card-${this.id}">
                 <div id="care-${this.id}-info">
-                <h2>${this.care_type}</h2>
-                <p>
-                    ${this.notes}<br><br>
-                    <strong>Date:</strong> ${this.date}
-                </p>
+                    <h2>${this.care_type}</h2>
+                    <p>
+                        ${this.notes}<br><br>
+                        <strong>Date:</strong> ${this.date}
+                    </p>
                 </div>
                 <div id="care-buttons">
                     <button class="update-care button" name="update-care-${this.id}" data-id="${this.id}">Update</button>
@@ -47,6 +47,7 @@ class Care {
         `
         let careDiv = document.createElement('div')
         careDiv.className = `care-${this.id}`
+        careDiv.id = `care-${this.id}`
         careDiv.innerHTML = careInfo
         showDiv.append(careDiv)
     }
@@ -54,16 +55,19 @@ class Care {
     renderUpdatedCare() {
         let careInfo = document.getElementById(`care-${this.id}-info`)
         careInfo.innerHTML = `
-            <div id="care-${this.id}">
-                <div id="care-${this.id}-info">
-                    <h2>${this.care_type}</h2>
-                    <p>
-                        ${this.notes}<br><br>
-                        <strong>Date:</strong> ${this.date}
-                    </p>
-                </div>
-            </div>
+                <h2>${this.care_type}</h2>
+                <p>
+                    ${this.notes}<br><br>
+                    <strong>Date:</strong> ${this.date}
+                </p>
         `
+        let careFormDiv = document.getElementById(`care-update-form-${this.id}`)
+        if (careFormDiv.style.display === 'none') {
+            careFormDiv.style.display = 'block';
+        } else if (careFormDiv.style.display = 'block') {
+            careFormDiv.reset()
+            careFormDiv.style.display = 'none';
+        }
     }
 
     updateCareOnDom({care_type, date, notes}) {
@@ -75,15 +79,20 @@ class Care {
 
     addUpdateCareForm(id) {
         let care = document.getElementById(`care-card-${id}`)
-        let updateForm = `
+        let updateCareForm = `
             <input type="text" value="${this.care_type}" name="care-type" id="update-care-type-${id}">
             <input type="text" value="${this.date}" name="date" id="update-date-${id}">
             <input type="text" value="${this.notes}" name="notes" id="update-notes-${id}">
         `
         let careFormDiv = document.createElement('div')
         careFormDiv.id = `care-update-form-${id}`
-        careFormDiv.innerHTML = updateForm
+        careFormDiv.className = 'care-update-form'
+        careFormDiv.innerHTML = updateCareForm
         care.append(careFormDiv)
+
+        let saveButton = document.getElementsByClassName('update-care button')
+        saveButton.className = 'save-button button'
+        saveButton.innerHTML = 'Save'
     }
     
 
@@ -92,16 +101,19 @@ class Care {
     }
 
     handleButtonClick = (e) => {
+        // delete care
         if (e.target.className === "delete-care button") {
             console.log('clicked delete care')
             let id = e.target.dataset.id
             caresAdapter.deleteCare(id)
+        // update care
         } else if (e.target.className === "update-care button") {
             console.log('clicked update care')
             let careId = e.target.dataset.id
             e.target.className = "save-care button"
             e.target.innerHTML = "Save"
             this.addUpdateCareForm(careId)
+         // save updated care
         } else if (e.target.className === "save-care button") {
             let careId = e.target.dataset.id
             e.target.className = "update-care button"

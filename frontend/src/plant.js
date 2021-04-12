@@ -31,8 +31,12 @@ class Plant {
         return document.getElementById(`plant-${this.id}-button`)
     }
 
-    get plantButtons() {
-        return document.getElementById('plant-buttons')
+    get plantEditButtons() {
+        return document.getElementById('plant-edit-buttons')
+    }
+
+    get plantCareButtons() {
+        return document.getElementById('plant-care-buttons')
     }
 
     get backToIndex() {
@@ -91,7 +95,8 @@ class Plant {
     }
 
     addButtonListeners() {
-        this.plantButtons.addEventListener('click', this.handleListClick)
+        this.plantEditButtons.addEventListener('click', this.handlePlantEdits)
+        this.plantCareButtons.addButtonListener('click', this.handleCareOptions)
         this.backToIndex.addEventListener('click', this.viewIndex)
         console.log(this)
     }
@@ -124,11 +129,11 @@ class Plant {
                 <p>${this.description}</p>
                 <p><strong>Current Planter:</strong> ${this.pot}</p>
                 <div id="plant-buttons">
-                    <div class="plant-row" id="plant-button">
+                    <div class="plant-row" id="plant-care-buttons">
                         <button class="view-care button" data-id="${this.id}">View Care History</button>
                         <button class="give-care button" data-id="${this.id}">Give Care</button>
                     </div>
-                    <div class="plant-row" id="plant-button">
+                    <div class="plant-row" id="plant-edit-buttons">
                         <button class="update button" data-id="${this.id}">Update</button> 
                         <button class="delete button" data-id="${this.id}">Delete</button>
                     </div>
@@ -200,7 +205,8 @@ class Plant {
             // give care form
         } else if (e.target.className === "give-care button") {
             let plantId = e.target.dataset.id
-            this.plantShow.renderNewCareForm(plantId);
+            let plantShow = document.getElementById('plant-show')
+            plantShow.renderNewCareForm(plantId);
         }
         
     }   
