@@ -170,7 +170,7 @@ class Plant {
         plant.append(formDiv)
     } 
 
-    handleListClick = (e) => {
+    handlePlantEdits = (e) => {
         // delete plant
         if (e.target.className === "delete button") {
             let id = e.target.dataset.id
@@ -187,6 +187,15 @@ class Plant {
             e.target.className = "update button"
             e.target.innerHTML = "Update"
             plantsAdapter.updatePlant(plantId)
+        }
+    }
+
+    handleCareOptions() {
+
+    }
+
+    handleListClick = (e) => {
+      
             // view care history
         } else if (e.target.className === "view-care button") {
             e.target.className = "close button"
