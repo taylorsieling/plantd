@@ -4,6 +4,9 @@ const caresAdapter = new CaresAdapter
 const plantForm = document.getElementById('plant-form')
 const plantFormContainer = document.getElementById('plant-form-container')
 const plantFormBtn = document.getElementById('new-plant-form-btn')
+const careForm = document.getElementById('care-form')
+const careFormContainer = document.getElementById('care-form-container');
+
 
 document.addEventListener('DOMContentLoaded', () => {
     plantsAdapter.fetchPlants()

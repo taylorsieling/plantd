@@ -170,8 +170,11 @@ class Plant {
         this.species = species
         this.description = description
         this.pot = pot
+        this.plantIndexRender()
+        this.addEventListeners()
         this.plantShowRender()
         this.addButtonListeners()
+        
         // 
     }
 
@@ -219,10 +222,10 @@ class Plant {
             e.target.className = "collapse button";
             this.renderNewCareForm(plantId);
         } else {
-            const careForm = document.getElementById('care-form')
-            careForm.reset();
             e.target.className = "give-care button";
+            const careForm = document.getElementById('care-form')
             const careFormContainer = document.getElementById('care-form-container');
+            careForm.reset();
             careFormContainer.remove();
         }
         
