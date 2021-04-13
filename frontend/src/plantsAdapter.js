@@ -24,12 +24,14 @@ class PlantsAdapter {
         const plantNickname = document.getElementById('plant-nickname')
         const plantDesc = document.getElementById('plant-description')
         const plantPot = document.getElementById('plant-pot')
+        const plantImage = document.getElementById('plant-image-url')
     
         let newPlantObj = {
             nickname: plantNickname.value,
             species: plantSpecies.value,
             description: plantDesc.value,
-            pot: plantPot.value
+            pot: plantPot.value,
+            image_url: plantImage.value
         }
     
         let configObj = {
