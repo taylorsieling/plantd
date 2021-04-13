@@ -19,6 +19,7 @@ class Plant {
         this.plantIndex = document.getElementById('plant-index')
         this.plantList = document.getElementById('plant-list')
         this.plantShow = document.getElementById('plant-show')
+        this.careShow = document.getElementById('plant-care-row')
 
         Plant.all.push(this)
     }
@@ -74,7 +75,6 @@ class Plant {
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
         const plantCares = Care.all.filter(el => el.plant_id == plant.id)
         this.plantShow.append(plant.plantShowRender())
-        // this.careShow.append(plantCares.addCaresToDom())
         this.addButtonListeners()
     }
     
@@ -143,8 +143,21 @@ class Plant {
             </div>
 
             <div class="section" id="plant-care-row">
+                <div class="care-title">
+                    <h2>Plant Care History</h2>
+                </div>
             </div>
         `
+        this.addPlantCares();
+    }
+
+    addPlantCares() {
+        console.log(this)
+        console.log('inside addPlantCares')
+        this.allCares.forEach(c => {
+            console.log(c)
+            c.addCaresToDom();
+        });
     }
 
     // <div class="plant-row" id="plant-care-buttons">

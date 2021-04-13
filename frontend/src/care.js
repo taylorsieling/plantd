@@ -28,7 +28,7 @@ class Care {
     }
 
     careFullRender() {
-        let showDiv = document.getElementById(`plant-care`)
+        let showDiv = document.getElementById(`plant-care-row`)
         let careInfo = `
             <div class="care-card" id="care-card-${this.id}">
                 <div id="care-${this.id}-info">
