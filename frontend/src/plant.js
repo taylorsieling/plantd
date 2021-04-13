@@ -109,6 +109,7 @@ class Plant {
 
     viewIndex = (e) => {
         if (e.target.id === "back-to-index") {
+            this.showElement.remove()
             this.plantIndex.style.display = 'block';
             this.plantShow.style.display = 'none';
         }    
