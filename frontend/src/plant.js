@@ -70,7 +70,6 @@ class Plant {
 
     viewPlantInfo = (e) => {
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
-        const plantCares = Care.all.filter(el => el.plant_id == plant.id)
         this.plantShow.append(plant.plantShowRender())
         this.addButtonListeners()
     }
