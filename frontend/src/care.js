@@ -8,10 +8,6 @@ class Care {
         this.date = date
         this.id = id
         this.plant_id = plant_id
-        
-        this.element = document.createElement('div')
-        this.element.id = `care-list-${this.plant_id}`
-        this.element.className = "care"
 
         this.plantShow = document.getElementById('plant-show')
 

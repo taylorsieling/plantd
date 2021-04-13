@@ -20,18 +20,18 @@ class PlantsAdapter {
     handlePlantFormSubmit = (e) => {
         e.preventDefault()
 
-        const plantSpecies = document.getElementById('plant-species')
-        const plantNickname = document.getElementById('plant-nickname')
-        const plantDesc = document.getElementById('plant-description')
-        const plantPot = document.getElementById('plant-pot')
-        const plantImage = document.getElementById('plant-image-url')
+        const species = document.getElementById('plant-species').value
+        const nickname = document.getElementById('plant-nickname').value
+        const description = document.getElementById('plant-description').value
+        const pot = document.getElementById('plant-pot').value
+        const image_url = document.getElementById('plant-image-url').value
     
         let newPlantObj = {
-            nickname: plantNickname.value,
-            species: plantSpecies.value,
-            description: plantDesc.value,
-            pot: plantPot.value,
-            image_url: plantImage.value
+            species,
+            nickname,
+            description,
+            pot,
+            image_url
         }
     
         let configObj = {
@@ -73,7 +73,7 @@ class PlantsAdapter {
             alert(response.message)
         });
 
-        Plant.all = Plant.all.filter(p => p.id != id)
+        // Plant.all = Plant.all.filter(p => p.id != id)
 
         let plant = document.getElementById(`plant-${id}`)
         plant.remove()
@@ -93,12 +93,14 @@ class PlantsAdapter {
         const nickname = document.getElementById(`update-nickname-${plantId}`).value
         const description = document.getElementById(`update-description-${plantId}`).value
         const pot = document.getElementById(`update-pot-${plantId}`).value
+        const image_url = document.getElementById(`update-image-url-${plantId}`).value
 
         let itemObj = {
             species,
             nickname,
             description,
-            pot
+            pot,
+            image_url
         }
 
         let configObj = {

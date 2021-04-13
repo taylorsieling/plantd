@@ -115,7 +115,6 @@ class Plant {
         this.plantIndex.style.display = 'none';
         this.plantShow.style.display = 'block';
         this.plantShow.innerHTML = `
-
             <div class="section" id="top-button">
                 <button id="back-to-index" class="button">Back to All Plants</button>
             </div>
@@ -143,25 +142,25 @@ class Plant {
                 <div class="care-title">
                     <h2>Plant Care History</h2>
                 </div>
-            </div>
-        `
+            </div>`;
+        
         this.addPlantCares();
     }
 
     addPlantCares() {
         this.allCares.forEach(c => {
-            console.log(c)
             c.addCaresToDom();
         });
     }
 
     // Updating Plants //
 
-    updatePlantOnDom({nickname, species, description, pot}) {
+    updatePlantOnDom({nickname, species, description, pot, image_url}) {
         this.nickname = nickname
         this.species = species
         this.description = description
         this.pot = pot
+        this.image_url = image_url
         this.plantIndexRender()
         this.addEventListeners()
         this.plantShowRender()
