@@ -72,7 +72,9 @@ class Plant {
     viewPlantInfo = (e) => {
         console.log(e)
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
+        const plantCares = Care.all.filter(el => el.plant_id == plant.id)
         this.plantShow.append(plant.plantShowRender())
+        this.careShow.append(plantCares.addCaresToDom())
         this.addButtonListeners()
     }
     
@@ -125,7 +127,7 @@ class Plant {
         </div><br>
         
         <div class="plant-row" id="plant-row">
-            <div class="plant-col">
+            <div class="plant-col" id="plant-${this.id}-image">
                 <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
             </div>
             <div class="plant-col" id="plant-${this.id}-care-info">
@@ -133,21 +135,25 @@ class Plant {
                 <h3>${this.species}</h3>
                 <p>${this.description}</p>
                 <p><strong>Current Planter:</strong> ${this.pot}</p>
-                <div id="plant-buttons">
-                    <div class="plant-row" id="plant-care-buttons">
-                        <button class="view-care button" data-id="${this.id}">View Care History</button>
-                        <button class="give-care button" data-id="${this.id}">Give Care</button>
-                    </div>
-                    <div class="plant-row" id="plant-edit-buttons">
-                        <button class="update button" data-id="${this.id}">Update</button> 
-                        <button class="delete button" data-id="${this.id}">Delete</button>
-                    </div>
+                <div class="plant-row" id="plant-edit-buttons">
+                    <button class="update button" data-id="${this.id}">Update</button> 
+                    <button class="delete button" data-id="${this.id}">Delete</button>
+                </div>
+                    
                 </div>
             </div>
         </div>
         <div class="plant-care" id="plant-care"></div>
         `
     }
+
+    // <div class="plant-row" id="plant-care-buttons">
+    //                     <button class="view-care button" data-id="${this.id}">View Care History</button>
+    //                     <button class="give-care button" data-id="${this.id}">Give Care</button>
+    //                 </div>
+    //                 <div class="plant-row" id="plant-edit-buttons">
+                        
+    //                 </div>
 
     // Updating Plants //
 
