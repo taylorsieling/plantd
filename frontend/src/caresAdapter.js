@@ -73,6 +73,7 @@ class CaresAdapter {
 
         console.log("Gave some tender loving care!");
         careForm.reset();
+        const careFormContainer = document.getElementById('care-form-container')
         careFormContainer.style.display = 'none';
     }
 
