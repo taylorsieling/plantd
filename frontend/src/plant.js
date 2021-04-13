@@ -16,6 +16,9 @@ class Plant {
         this.element.id = `plant-${this.id}`
         this.element.className = "column"
 
+        this.showElement = document.createElement('div')
+        this.showElement.id = `plant-${this.id}-show`
+
         this.plantIndex = document.getElementById('plant-index')
         this.plantList = document.getElementById('plant-list')
         this.plantShow = document.getElementById('plant-show')
@@ -69,8 +72,8 @@ class Plant {
     }
 
     viewPlantInfo = (e) => {
-        const plant = Plant.all.find(p => p.id == e.target.dataset.id)
-        this.plantShow.append(plant.plantShowRender())
+        this.plantShow.append(this.plantShowRender())
+        this.addPlantCares()
         this.addButtonListeners()
     }
     
@@ -114,7 +117,7 @@ class Plant {
     plantShowRender() {
         this.plantIndex.style.display = 'none';
         this.plantShow.style.display = 'block';
-        this.plantShow.innerHTML = `
+        this.showElement.innerHTML = `
             <div class="section" id="top-button">
                 <button id="back-to-index" class="button">Back to All Plants</button>
             </div>
@@ -142,9 +145,9 @@ class Plant {
                 <div class="care-title">
                     <h2>Plant Care History</h2>
                 </div>
-            </div>`;
-        
-        this.addPlantCares();
+            </div>`
+       
+        return this.showElement
     }
 
     addPlantCares() {
@@ -165,6 +168,7 @@ class Plant {
         this.addEventListeners()
         this.plantShowRender()
         this.addButtonListeners()
+        this.addPlantCares()
     }
 
     addUpdateForm(plantId) {

@@ -95,7 +95,7 @@ class PlantsAdapter {
         const pot = document.getElementById(`update-pot-${plantId}`).value
         const image_url = document.getElementById(`update-image-url-${plantId}`).value
 
-        let itemObj = {
+        let updateObj = {
             species,
             nickname,
             description,
@@ -109,7 +109,7 @@ class PlantsAdapter {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify(itemObj)
+            body: JSON.stringify(updateObj)
         }
 
         fetch(this.baseUrl + `/${plantId}`, configObj)
