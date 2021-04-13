@@ -192,12 +192,13 @@ class Plant {
             </form>
         `
         let formDiv = document.createElement('div')
-        formDiv.id = "care-form"
+        formDiv.id = "care-form-container"
         formDiv.className = 'new-care-form'
         formDiv.innerHTML = careForm
         plant.append(formDiv)
         formDiv.addEventListener('submit', caresAdapter.handleCareFormSubmit)
     }
+
     // Event Handlers //
 
     handlePlantEdits = (e) => {
@@ -239,8 +240,6 @@ class Plant {
         // give care form
         } else if (e.target.className === "give-care button") {
             let plantId = e.target.dataset.id
-            e.target.className = "save-care button"
-            e.target.innerHTML = "Save"
             this.renderNewCareForm(plantId);
         } 
     }

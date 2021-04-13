@@ -38,36 +38,6 @@ class CaresAdapter {
 
     }
 
-    // updateCare(careId) {
-    
-    //     const care_type = document.getElementById(`update-care-type-${careId}`).value
-    //     const date = document.getElementById(`update-date-${careId}`).value
-    //     const notes = document.getElementById(`update-notes-${careId}`).value
-
-    //     let itemObj = {
-    //         care_type,
-    //         date,
-    //         notes
-    //     }
-
-    //     let configObj = {
-    //         method: 'PATCH',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(itemObj)
-    //     }
-
-    //     fetch(this.baseUrl + `/${careId}`, configObj)
-    //     .then(res => res.json())
-    //     .then(response => {
-    //         let care = Care.all.find(c => c.id == response.data.attributes.id)
-    //         care.updateCareOnDom(response.data.attributes)
-    //     })
-    // }
-        
-
     handleCareFormSubmit = (e) => {
         e.preventDefault()
 
@@ -97,7 +67,7 @@ class CaresAdapter {
         .then(res => res.json())
         .then(response => {
             console.log(response)
-            let care = new Care(response.data.attributes.plant_id)
+            let care = new Care(response.data.attributes)
             care.addCaresToDom()
         })
 
@@ -107,5 +77,36 @@ class CaresAdapter {
     }
 
 }
+
+
+    // updateCare(careId) {
+    
+    //     const care_type = document.getElementById(`update-care-type-${careId}`).value
+    //     const date = document.getElementById(`update-date-${careId}`).value
+    //     const notes = document.getElementById(`update-notes-${careId}`).value
+
+    //     let itemObj = {
+    //         care_type,
+    //         date,
+    //         notes
+    //     }
+
+    //     let configObj = {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify(itemObj)
+    //     }
+
+    //     fetch(this.baseUrl + `/${careId}`, configObj)
+    //     .then(res => res.json())
+    //     .then(response => {
+    //         let care = Care.all.find(c => c.id == response.data.attributes.id)
+    //         care.updateCareOnDom(response.data.attributes)
+    //     })
+    // }
+        
 
 
