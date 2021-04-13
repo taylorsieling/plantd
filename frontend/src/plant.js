@@ -144,7 +144,7 @@ class Plant {
 
             <div class="section" id="plant-care-row">
                 <div class="section" id="care-button-container">
-                    <button id="care-button" class="button" data-id="${this.id}">Give Plant Care</button>
+                    <button id="care-button" class="give-care button" data-id="${this.id}">Give Plant Care</button>
                 </div>
                 <div class="care-title">
                     <h2>Plant Care History</h2>
@@ -214,9 +214,18 @@ class Plant {
     }
 
     givePlantCare = (e) => {
-        console.log('inside givePlantCare')
-        let plantId = e.target.dataset.id
-        this.renderNewCareForm(plantId)
+        if (e.target.className === "give-care button") {
+            let plantId = e.target.dataset.id;
+            e.target.className = "collapse button";
+            this.renderNewCareForm(plantId);
+        } else {
+            const careForm = document.getElementById('care-form')
+            careForm.reset();
+            e.target.className = "give-care button";
+            const careFormContainer = document.getElementById('care-form-container');
+            careFormContainer.remove();
+        }
+        
     }
 
     renderNewCareForm(plantId) {
