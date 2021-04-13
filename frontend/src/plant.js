@@ -135,7 +135,7 @@ class Plant {
                     <h3>${this.species}</h3>
                     <p>${this.description}</p>
                     <p><strong>Current Planter:</strong> ${this.pot}</p>
-                    <div class="section" id="plant-edit-buttons">
+                    <div id="plant-edit-buttons">
                         <button class="update button" data-id="${this.id}">Update</button> 
                         <button class="delete button" data-id="${this.id}">Delete</button>
                     </div>
@@ -144,8 +144,6 @@ class Plant {
 
             <div class="section" id="plant-care-row">
             </div>
-
-    
         `
     }
 

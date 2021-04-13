@@ -53,10 +53,11 @@
 
   #top-button {
     text-align: right;
-    /* margin-right: 30px;
-    margin-left: 0px; */
-    /* margin-right: 170px;
-    margin-bottom: 0px; */
+  }
+
+  #plant-edit-buttons {
+    text-align: left;
+    margin-left: 0;
   }
 
   #plant-form-container {
@@ -76,6 +77,8 @@
     /* margin: 150px;
     margin-top: 0px; */
   }
+
+
 
 
 
