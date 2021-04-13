@@ -220,6 +220,7 @@
 
   .plant-row {
     padding-left: 0;
+    margin: 10px 40px 10px 40px;
   }
 
   .plant-row:after {
