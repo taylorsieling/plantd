@@ -13,38 +13,7 @@ class CaresAdapter {
         })
     };
 
-    updateCare(careId) {
-    
-        const care_type = document.getElementById(`update-care-type-${careId}`).value
-        const date = document.getElementById(`update-date-${careId}`).value
-        const notes = document.getElementById(`update-notes-${careId}`).value
-
-        let itemObj = {
-            care_type,
-            date,
-            notes
-        }
-
-        let configObj = {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(itemObj)
-        }
-
-        fetch(this.baseUrl + `/${careId}`, configObj)
-        .then(res => res.json())
-        .then(response => {
-            let care = Care.all.find(c => c.id == response.data.attributes.id)
-            care.updateCareOnDom(response.data.attributes)
-        })
-
-        console.log("Care Updated!")
-    }
-
-    deleteCare(id) {
+    deleteCare(careId) {
 
         let configObj = {
             method: 'DELETE',
@@ -54,29 +23,50 @@ class CaresAdapter {
             }
         }
     
-        fetch(this.baseUrl + `/${id}`, configObj)
+        fetch(this.baseUrl + `/${careId}`, configObj)
         .then(res => res.json())
-        .then(response => {
-            alert(response.message)
+        .then(json => {
+            alert(json.message)
         });
 
-        // remove plant from all array and remove plant div from DOM
+        Care.all = Care.all.filter(c => c.id != careId)
 
-        // let plant = document.getElementById(`card-${id}`);
-        // let plantDiv = document.getElementById(`plant-${id}`);
-        // let findIndex = Plant.all.findIndex(p => p.id == plant.dataset.id)
-        // Plant.all.splice(findIndex, 1)
-        // plantDiv.remove();
+        let care = document.getElementById(`care-${careId}`)
+        care.remove()
 
-        // re-render plant index
-        // let plants = Plant.all
-        // plants.forEach(p => {
-        //     console.log(p)
-        //     p.addPlantsToDom();
-        // });
- 
         console.log("Deleted Successfully!")
+
     }
+
+    // updateCare(careId) {
+    
+    //     const care_type = document.getElementById(`update-care-type-${careId}`).value
+    //     const date = document.getElementById(`update-date-${careId}`).value
+    //     const notes = document.getElementById(`update-notes-${careId}`).value
+
+    //     let itemObj = {
+    //         care_type,
+    //         date,
+    //         notes
+    //     }
+
+    //     let configObj = {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify(itemObj)
+    //     }
+
+    //     fetch(this.baseUrl + `/${careId}`, configObj)
+    //     .then(res => res.json())
+    //     .then(response => {
+    //         let care = Care.all.find(c => c.id == response.data.attributes.id)
+    //         care.updateCareOnDom(response.data.attributes)
+    //     })
+    // }
+        
 
     handleCareFormSubmit = (e) => {
         e.preventDefault()
@@ -107,11 +97,13 @@ class CaresAdapter {
         .then(res => res.json())
         .then(response => {
             console.log(response)
-            let care = new Care(response.data.attributes)
+            let care = new Care(response.data.attributes.plant_id)
             care.addCaresToDom()
         })
 
-        console.log('added care')
+        console.log("Gave some tender loving care!");
+        careForm.reset();
+        careFormContainer.style.display = 'none';
     }
 
 }

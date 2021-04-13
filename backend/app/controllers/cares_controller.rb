@@ -19,14 +19,17 @@ class CaresController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
+        care = Care.find(params[:id])
+        care.destroy
+        render json: {message: 'Successfully Deleted'}
     end
 
-    def update
-        care = Care.find(params[:id])
-        care.update(care_params)
-        render json: CareSerializer.new(care)
-    end
+    # def update
+    #     care = Care.find(params[:id])
+    #     care.update(care_params)
+    #     render json: CareSerializer.new(care)
+    # end
 
     private
 

@@ -104,7 +104,6 @@ class Plant {
         this.plantEditButtons.addEventListener('click', this.handlePlantEdits)
         this.plantCareButtons.addEventListener('click', this.handleCareOptions)
         this.backToIndex.addEventListener('click', this.viewIndex)
-        console.log(this)
     }
 
     viewIndex = (e) => {
