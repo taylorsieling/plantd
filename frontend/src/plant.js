@@ -74,7 +74,7 @@ class Plant {
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
         const plantCares = Care.all.filter(el => el.plant_id == plant.id)
         this.plantShow.append(plant.plantShowRender())
-        this.careShow.append(plantCares.addCaresToDom())
+        // this.careShow.append(plantCares.addCaresToDom())
         this.addButtonListeners()
     }
     
@@ -104,7 +104,7 @@ class Plant {
     
     addButtonListeners() {
         this.plantEditButtons.addEventListener('click', this.handlePlantEdits)
-        this.plantCareButtons.addEventListener('click', this.handleCareOptions)
+        // this.plantCareButtons.addEventListener('click', this.handleCareOptions)
         this.backToIndex.addEventListener('click', this.viewIndex)
     }
 
