@@ -7,10 +7,8 @@ const plantFormBtn = document.getElementById('new-plant-form-btn')
 const careForm = document.getElementById('care-form')
 const careFormContainer = document.getElementById('care-form-container');
 
-
 document.addEventListener('DOMContentLoaded', () => {
     plantsAdapter.fetchPlants()
     caresAdapter.fetchCares()
     plantForm.addEventListener('submit', plantsAdapter.handlePlantFormSubmit)
-
 }) 

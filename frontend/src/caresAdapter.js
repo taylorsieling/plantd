@@ -71,12 +71,13 @@ class CaresAdapter {
             care.addCaresToDom()
         })
 
-        console.log("Gave some tender loving care!");
         const careForm = document.getElementById('care-form')
         const careFormContainer = document.getElementById('care-form-container')
-        
+
         careForm.reset();
         careFormContainer.style.display = 'none';
+
+        console.log("Gave some tender loving care!");
     }
 
 }

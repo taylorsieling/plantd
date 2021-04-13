@@ -19,7 +19,6 @@ class Plant {
         this.plantIndex = document.getElementById('plant-index')
         this.plantList = document.getElementById('plant-list')
         this.plantShow = document.getElementById('plant-show')
-        this.careShow = document.getElementById('plant-care-row')
 
         Plant.all.push(this)
     }
@@ -49,7 +48,6 @@ class Plant {
     // Render Index Page //
 
     addPlantsToDom() {
-        console.log(this)
         this.plantList.append(this.plantIndexRender())
         this.addEventListeners()
     }
@@ -71,7 +69,6 @@ class Plant {
     }
 
     viewPlantInfo = (e) => {
-        console.log(e)
         const plant = Plant.all.find(p => p.id == e.target.dataset.id)
         const plantCares = Care.all.filter(el => el.plant_id == plant.id)
         this.plantShow.append(plant.plantShowRender())
@@ -109,7 +106,6 @@ class Plant {
     }
 
     viewIndex = (e) => {
-        console.log(e)
         if (e.target.id === "back-to-index") {
             this.plantIndex.style.display = 'block';
             this.plantShow.style.display = 'none';
@@ -117,7 +113,6 @@ class Plant {
     }
 
     plantShowRender() {
-        console.log('plants show render')
         this.plantIndex.style.display = 'none';
         this.plantShow.style.display = 'block';
         this.plantShow.innerHTML = `
@@ -155,8 +150,6 @@ class Plant {
     }
 
     addPlantCares() {
-        console.log(this)
-        console.log('inside addPlantCares')
         this.allCares.forEach(c => {
             console.log(c)
             c.addCaresToDom();
@@ -174,8 +167,6 @@ class Plant {
         this.addEventListeners()
         this.plantShowRender()
         this.addButtonListeners()
-        
-        // 
     }
 
     addUpdateForm(plantId) {

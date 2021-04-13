@@ -51,9 +51,10 @@ class PlantsAdapter {
             plant.addPlantsToDom()
         })
     
-        console.log("Created a new plant!");
         plantForm.reset();
         plantFormContainer.style.display = 'none';
+
+        console.log("Created a new plant!");
     }
 
     deletePlant(id) {
@@ -82,7 +83,7 @@ class PlantsAdapter {
             p.addPlantsToDom();
         });
  
-        console.log("Deleted Successfully!")
+        console.log("Plant Deleted!")
     }
     
     updatePlant(plantId) {

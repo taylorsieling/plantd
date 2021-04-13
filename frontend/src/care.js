@@ -55,8 +55,6 @@ class Care {
     }
 
     deleteCareClick = (e) => {
-        // delete care
-        console.log('clicked delete care')
         let careId = e.target.dataset.id
         caresAdapter.deleteCare(careId)
     }
