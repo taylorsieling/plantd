@@ -73,7 +73,7 @@ class PlantsAdapter {
             alert(response.message)
         });
 
-        // Plant.all = Plant.all.filter(p => p.id != id)
+        Plant.all = Plant.all.filter(p => p.id != id)
 
         let plant = document.getElementById(`plant-${id}`)
         plant.remove()
