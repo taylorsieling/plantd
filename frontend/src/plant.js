@@ -122,28 +122,30 @@ class Plant {
         this.plantShow.style.display = 'block';
         this.plantShow.innerHTML = `
 
-        <div class="main" id="top-button">
-            <button id="back-to-index" class="button">Back to All Plants</button>
-        </div><br>
-        
-        <div class="plant-row" id="plant-row">
-            <div class="plant-col" id="plant-${this.id}-image">
-                <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
+            <div class="section" id="top-button">
+                <button id="back-to-index" class="button">Back to All Plants</button>
             </div>
-            <div class="plant-col" id="plant-${this.id}-care-info">
-                <h2>${this.nickname}</h2>
-                <h3>${this.species}</h3>
-                <p>${this.description}</p>
-                <p><strong>Current Planter:</strong> ${this.pot}</p>
-                <div class="plant-row" id="plant-edit-buttons">
-                    <button class="update button" data-id="${this.id}">Update</button> 
-                    <button class="delete button" data-id="${this.id}">Delete</button>
+            
+            <div class="plant-row" id="plant-info-row">
+                <div class="plant-col" id="plant-${this.id}-image">
+                    <img class="displayimg" src="${this.image_url}" alt="${this.species}" width="100%">  
                 </div>
-                    
+                <div class="plant-col" id="plant-${this.id}-care-info">
+                    <h2>${this.nickname}</h2>
+                    <h3>${this.species}</h3>
+                    <p>${this.description}</p>
+                    <p><strong>Current Planter:</strong> ${this.pot}</p>
+                    <div class="section" id="plant-edit-buttons">
+                        <button class="update button" data-id="${this.id}">Update</button> 
+                        <button class="delete button" data-id="${this.id}">Delete</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="plant-care" id="plant-care"></div>
+
+            <div class="section" id="plant-care-row">
+            </div>
+
+    
         `
     }
 

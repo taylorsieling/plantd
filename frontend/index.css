@@ -52,9 +52,9 @@
   }
 
   #top-button {
-    float: right;
-    margin-right: 30px;
-    margin-left: 0px;
+    text-align: right;
+    /* margin-right: 30px;
+    margin-left: 0px; */
     /* margin-right: 170px;
     margin-bottom: 0px; */
   }
@@ -194,6 +194,10 @@
   }
 
   /* SHOW PAGE */
+
+  .section {
+    padding: 20px;
+  }
 
   .plant-col {
     float: left;
