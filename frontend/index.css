@@ -78,10 +78,6 @@
     margin-top: 0px; */
   }
 
-
-
-
-
 /* BUTTONS */
 
   .button {
@@ -202,6 +198,16 @@
     padding: 20px;
   }
 
+  #care-button-container {
+    text-align: right;
+  }
+
+  .new-care-form {
+    padding: 20px;
+    border: 1px solid black;
+    text-align: left;
+  }
+
   .care-title {
     padding: 20px;
     margin: 10px 40px 10px 40px;
@@ -301,9 +307,6 @@
 
   /* SHOW PAGE */
 
-  .plant-show {
-
-  }
 
   /* FORM */
 
@@ -312,14 +315,14 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 1px solid black;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
   }
 
   input[type=text]:focus {
-    border: 2px solid black;
+    border: 2px solid #18A558 ;
   }
 
   input[type=textarea] {
@@ -328,15 +331,25 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 1px solid black;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
   }
 
   input[type=textarea]:focus {
-    border: 2px solid black;
+    border: 2px solid #18A558 ;
   }
+
+  input[type="date"] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
 
   .label {
     font-weight: 400;

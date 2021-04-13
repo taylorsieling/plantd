@@ -38,8 +38,8 @@ class Plant {
         return document.getElementById('plant-edit-buttons')
     }
 
-    get plantCareButtons() {
-        return document.getElementById('plant-care-buttons')
+    get giveCareButton() {
+        return document.getElementById('care-button')
     }
 
     get backToIndex() {
@@ -103,9 +103,9 @@ class Plant {
     // Show Page //
     
     addButtonListeners() {
-        this.plantEditButtons.addEventListener('click', this.handlePlantEdits)
-        // this.plantCareButtons.addEventListener('click', this.handleCareOptions)
         this.backToIndex.addEventListener('click', this.viewIndex)
+        this.plantEditButtons.addEventListener('click', this.handlePlantEdits)
+        this.giveCareButton.addEventListener('click', this.givePlantCare)
     }
 
     viewIndex = (e) => {
@@ -143,6 +143,9 @@ class Plant {
             </div>
 
             <div class="section" id="plant-care-row">
+                <div class="section" id="care-button-container">
+                    <button id="care-button" class="button" data-id="${this.id}">Give Plant Care</button>
+                </div>
                 <div class="care-title">
                     <h2>Plant Care History</h2>
                 </div>
@@ -159,14 +162,6 @@ class Plant {
             c.addCaresToDom();
         });
     }
-
-    // <div class="plant-row" id="plant-care-buttons">
-    //                     <button class="view-care button" data-id="${this.id}">View Care History</button>
-    //                     <button class="give-care button" data-id="${this.id}">Give Care</button>
-    //                 </div>
-    //                 <div class="plant-row" id="plant-edit-buttons">
-                        
-    //                 </div>
 
     // Updating Plants //
 
@@ -195,28 +190,6 @@ class Plant {
         formDiv.innerHTML = updateForm
         plant.append(formDiv)
     } 
-    
-    renderNewCareForm(plantId) {
-        let plant = document.getElementById(`plant-${this.id}-care-info`)
-        let careForm = `
-            <form id="care-form">
-                <label for="care-type">Care Type:</label>
-                <input type="text" name="care-type" id="care-type">
-                <label for="care-notes">Notes:</label>
-                <input type="text" name="care-notes" id="care-notes">
-                <label for="care-date">Date:</label>
-                <input type="date" name="care-date" id="care-date"><br><br>
-                <input type="hidden" id="care-plantId" value="${plantId}">
-                <input type="submit" class="button" value="Tend to Plant!">
-            </form>
-        `
-        let formDiv = document.createElement('div')
-        formDiv.id = "care-form-container"
-        formDiv.className = 'new-care-form'
-        formDiv.innerHTML = careForm
-        plant.append(formDiv)
-        formDiv.addEventListener('submit', caresAdapter.handleCareFormSubmit)
-    }
 
     // Event Handlers //
 
@@ -240,26 +213,31 @@ class Plant {
         }
     }
 
-    handleCareOptions = (e) => {
-        // view care history
-        if (e.target.className === "view-care button") {
-            e.target.className = "close button"
-            e.target.innerHTML = "Close Care History"
-            this.allCares.forEach(c => {
-                console.log(c)
-                c.addCaresToDom();
-            });
-            document.getElementById("plant-care").style.display = 'block';
-        // close care history
-        } else if (e.target.className === "close button") {
-            let careDiv = document.getElementById("plant-care")
-            e.target.className = "view-care button"
-            e.target.innerHTML = "View Care History"
-            careDiv.style.display = 'none'
-        // give care form
-        } else if (e.target.className === "give-care button") {
-            let plantId = e.target.dataset.id
-            this.renderNewCareForm(plantId);
-        } 
+    givePlantCare = (e) => {
+        console.log('inside givePlantCare')
+        let plantId = e.target.dataset.id
+        this.renderNewCareForm(plantId)
+    }
+
+    renderNewCareForm(plantId) {
+        let plant = document.getElementById('care-button-container')
+        let careForm = `
+            <form id="care-form">
+                <label for="care-type">Care Type:</label>
+                <input type="text" name="care-type" id="care-type">
+                <label for="care-notes">Notes:</label>
+                <input type="text" name="care-notes" id="care-notes">
+                <label for="care-date">Date:</label><br>
+                <input type="date" name="care-date" id="care-date"><br><br>
+                <input type="hidden" id="care-plantId" value="${plantId}">
+                <input type="submit" class="button" value="Tend to Plant!">
+            </form>
+        `
+        let formDiv = document.createElement('div')
+        formDiv.id = "care-form-container"
+        formDiv.className = 'new-care-form'
+        formDiv.innerHTML = careForm
+        plant.append(formDiv)
+        formDiv.addEventListener('submit', caresAdapter.handleCareFormSubmit)
     }
 }
