@@ -339,7 +339,21 @@
     border: 1px solid black;
     transition: 0.5s;
     outline: none;
-}
+  }
+
+  input[type=search] {
+    /* width: 100px; */
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    transition: 0.5s;
+    outline: none;
+  }
+
+  input[type=search]:focus {
+    border: 1px solid #18A558 ;
+  }
 
   .label {
     font-weight: 400;

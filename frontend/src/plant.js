@@ -59,7 +59,18 @@ class Plant {
 
     addEventListeners() {
         plantFormBtn.addEventListener("click", this.showNewPlantForm);
-        this.card.addEventListener('click', this.viewPlantInfo)
+        searchSubmit.addEventListener("click", this.searchPlants);
+        this.card.addEventListener("click", this.viewPlantInfo);  
+    }
+
+    searchPlants = (e) => {
+        e.preventDefault()
+        let searchInput = document.getElementById('search-field').value.toLowerCase();
+        let filteredPlants = Plant.all.filter(plant => plant.nickname.toLowerCase().includes(searchInput))
+        this.plantList.innerHTML = '';
+        filteredPlants.forEach(plant => {
+            plant.addPlantsToDom();
+        });
     }
 
     showNewPlantForm() {
