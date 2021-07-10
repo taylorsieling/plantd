@@ -52,6 +52,7 @@
 
   #top-button {
     text-align: right;
+    margin: 40px;
   }
 
   #plant-edit-buttons {
@@ -107,11 +108,16 @@
     background-color: #18A558;
   }
 
+  .search {
+    float: right;
+  }
+
   #plant-buttons {
     text-align: center;
   }
 
   #new-plant-form-btn {
+    float: left;
     text-align: center;
     width: 175px;
   }
